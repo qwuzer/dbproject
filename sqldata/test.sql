@@ -105,6 +105,7 @@ CREATE TABLE IF NOT EXISTS `post` (
 ) ENGINE=INNODB CHARACTER SET=utf8 COLLATE=utf8_bin 
 
 
+
 CREATE TABLE IF NOT EXISTS `section` (
     `sec_id` varchar(8),
     `serial_no`  char(4) CHARACTER SET utf8 COLLATE utf8_general_ci,

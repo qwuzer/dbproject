@@ -26,22 +26,10 @@ if (isset($_GET['serial_no'])) {
     
     $result = $conn->query($sql); // Send SQL Query
 
-
-    //serial_no	char(4)	
-    // course_code	varchar(10) NULL	
-    // dept_name	varchar(100) NULL	
-    // course_level	varchar(100) NULL	
-    // title	varchar(200) NULL	
-    // credits	decimal(2,0) NULL	
-    // R/S/G	varchar(10) NULL	
-    // full/half	varchar(2) NULL	
-    // EMI	varchar(20) NULL	
-    // instructor	varchar(100) NULL	
-    // time_location	varchar(100) NULL	
     if ($result->num_rows > 0) {
         $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
         echo "
-        <h2>Course Details</h2>
+        <h1>Course Details</h1>
         <p>Serial No: ".$row['serial_no']."</p>
         <p>Course Code: ".$row['course_code']."</p>
         <p>Department: ".$row['dept_name']."</p>
@@ -54,10 +42,51 @@ if (isset($_GET['serial_no'])) {
         <p>Instructor: ".$row['instructor']."</p>
         <p>Time Location: ".$row['time_location']."</p>";
 
+
+        echo "<h1>Posts:</h1>";
+        
+        $postsql = "SELECT easiness , loading , usefulness FROM post where serial_no = '$serialNo'";
+        $postresult = $conn->query($postsql);
+        
+        if( $postresult->num_rows > 0){  //get average ratings of post
+            $total_easiness = 0;
+            $total_loading = 0;
+            $total_usefulness = 0;
+            while($postrow = mysqli_fetch_array($postresult, MYSQLI_ASSOC))
+            {
+                $easiness = $postrow['easiness'];
+                $loading = $postrow['loading'];
+                $usefulness = $postrow['usefulness'];
+                $total_easiness += $easiness;
+                $total_loading += $loading;
+                $total_usefulness += $usefulness;
+            }
+            $avg_easiness = $total_easiness / $postresult->num_rows;
+            $avg_loading = $total_loading / $postresult->num_rows;
+            $avg_usefulness = $total_usefulness / $postresult->num_rows;
+            echo "<p> Easiness: ".$avg_easiness." Loading: ".$avg_loading." Usefulness: ".$avg_usefulness."</p>";
+        }
+        else{
+            echo "<p>Easiness: --  Loading: --   Usefulness: --</p>";
+            echo " <p> No post yet </p>";
+        }
+
+
+        while($postrow = mysqli_fetch_array($postresult, MYSQLI_ASSOC))
+        {
+            $easiness = $postrow['easiness'];
+            $loading = $postrow['loading'];
+            $usefulness = $postrow['usefulness'];
+            echo "<p> Easiness: ".$easiness." Loading: ".$loading." Usefulness: ".$usefulness."</p>";
+            echo "<p> Comment: ".$postrow['comment']."</p>";
+        }
+
     } else {
         echo "Course not found";
     }
 } else {
     echo "Invalid request";
 }
+
+
 ?>

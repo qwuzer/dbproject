@@ -13,68 +13,55 @@
     <form action="dosearch.php" method="post">	
         <table width="500" border="1" bgcolor="#cccccc" align="center">
             <tr>
-                <th>search</th>
+                <th>search by coursename</th>
                 <td bgcolor="grey"><input type="text" name="search_course"  /></td>
             </tr>
-            <tr>
-                <th colspan="2"><input type="submit" value="新增"/></th>  
-               
-            </tr>
-        </table>
-    </form>  
-
-    <form action="dosearch.php" method="post">	
-        <table width="500" border="1" bgcolor="#cccccc" align="center">
             <tr>
                 <th>search by instructor name</th>
                 <td bgcolor="grey"><input type="text" name="search_name"  /></td>
             </tr>
-            <tr>
-                <th colspan="2"><input type="submit" value="搜尋"/></th>  
-            </tr>
-        </table>
-    </form>  
-    
-    <form action="dosearch.php" method="post">
-        <label for="search_dept">Select Department:</label>
-        <select name="search_dept"  id = "search_dept">
-            
-        <?php
-            //******** update your personal settings ******** 
-            $servername = "140.122.184.125:3307";
-            $username = "team14";
-            $password = "kQVYoJa7S0NIXlCN";
-            $dbname = "team14";
 
-            //Connecting to and selecting a MySQL database
-            $conn = new mysqli($servername, $username, $password, $dbname);
+            <label for="search_dept">Select Department:</label>
 
-            if (!$conn->set_charset("utf8")) {
-                printf("Error loading character set utf8: %s\n", $conn->error);
-                exit();
-            }
+            <select name="search_dept"  id = "search_dept">
+            <?php
+                //******** update your personal settings ******** 
+                $servername = "140.122.184.125:3307";
+                $username = "team14";
+                $password = "kQVYoJa7S0NIXlCN";
+                $dbname = "team14";
 
-            // Check connection
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            } 
+                //Connecting to and selecting a MySQL database
+                $conn = new mysqli($servername, $username, $password, $dbname);
 
-            $sql = "SELECT dept_name FROM department";
-            $result = $conn->query($sql);
-
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    $deptName = $row['dept_name'];
-                    echo "<option value='$deptName'>$deptName</option>";
+                if (!$conn->set_charset("utf8")) {
+                    printf("Error loading character set utf8: %s\n", $conn->error);
+                    exit();
                 }
-            } else {
-                echo "<option value=''>No departments found</option>";
-            }
 
-        ?>
-        </select>
+                // Check connection
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                } 
+
+                $sql = "SELECT dept_name FROM department";
+                $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        $deptName = $row['dept_name'];
+                        echo "<option value='$deptName'>$deptName</option>";
+                    }
+                } else {
+                    echo "<option value=''>No departments found</option>";
+                }
+            ?>
+            </select>
+           
+
+        </table>
         <input type="submit" value="search">
-    </form>
+    </form>  
 
 </body>
 </html>

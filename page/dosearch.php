@@ -29,22 +29,26 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-
-
-if (isset($_POST['search_course']) || isset($_POST['search_name']) || isset($_POST['search_dept']) || isset($_POST['search_semester'])) {
+if (isset($_POST['search_course']) || isset($_POST['search_name']) || isset($_POST['search_dept']) ) {
     
-    if( isset($_POST['search_course']) ){
-        $SearchCourse = $_POST['search_course'];
-        $sql = "SELECT serial_no, title, instructor FROM course WHERE title LIKE '%$SearchCourse%';";	// Set up your SQL query
+    $sql = "SELECT serial_no, title, instructor FROM course WHERE 1";
+
+    // Check each search variable and append the corresponding conditions to the SQL query
+    if (isset($_POST['search_course'])) {
+        $searchCourse = $_POST['search_course'];
+        $sql .= " AND title LIKE '%$searchCourse%'";
     }
-    else if( isset($_POST['search_name']) ){
-        $SearchName = $_POST['search_name'];
-        $sql = "SELECT serial_no, title, instructor FROM course WHERE instructor LIKE '%$SearchName%';";	// Set up your SQL query
+
+    if (isset($_POST['search_name'])) {
+        $searchName = $_POST['search_name'];
+        $sql .= " AND instructor LIKE '%$searchName%'";
     }
-    else if ( isset($_POST['search_dept']) ){
-        $SearchDept = $_POST['search_dept'];
-        $sql = "SELECT serial_no, title, instructor FROM course WHERE dept_name = '$SearchDept';";	// Set up your SQL query
+
+    if (isset($_POST['search_dept'])) {
+        $searchDept = $_POST['search_dept'];
+        $sql .= " AND dept_name =  '$searchDept'";
     }
+    echo $sql;
 
     $result = $conn->query($sql);	// Send SQL Query
 
@@ -67,6 +71,33 @@ if (isset($_POST['search_course']) || isset($_POST['search_name']) || isset($_PO
                     <p>Title: ".$row['title']."</p>
                     <p>Instructor: ".$row['instructor']."</p>
             </div>";
+
+            // Display course ratings
+            $postsql = "SELECT easiness , loading , usefulness FROM post";
+            $postresult = $conn->query($postsql);
+            
+            if( $postresult->num_rows > 0){  //get average ratings of post
+                $total_easiness = 0;
+                $total_loading = 0;
+                $total_usefulness = 0;
+                while($postrow = mysqli_fetch_array($postresult, MYSQLI_ASSOC))
+                {
+                    $easiness = $postrow['easiness'];
+                    $loading = $postrow['loading'];
+                    $usefulness = $postrow['usefulness'];
+                    $total_easiness += $easiness;
+                    $total_loading += $loading;
+                    $total_usefulness += $usefulness;
+                }
+                $avg_easiness = $total_easiness / $postresult->num_rows;
+                $avg_loading = $total_loading / $postresult->num_rows;
+                $avg_usefulness = $total_usefulness / $postresult->num_rows;
+                echo "<p> Easiness: ".$avg_easiness." Loading: ".$avg_loading." Usefulness: ".$avg_usefulness."</p>";
+            }
+            else{
+                echo "<p>Easiness: --  Loading: --   Usefulness: --</p>";
+            }
+
 
             echo "------------------------------------";
 

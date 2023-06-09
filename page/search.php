@@ -36,8 +36,8 @@
     </form>  
     
     <form action="dosearch.php" method="post">
-        <label for="search_course">Select Department:</label>
-        <select name="search_course"  id = "search_course">
+        <label for="search_dept">Select Department:</label>
+        <select name="search_dept"  id = "search_dept">
             
         <?php
             //******** update your personal settings ******** 
@@ -73,7 +73,7 @@
 
         ?>
         </select>
-        <input type="submit" value="search_course">
+        <input type="submit" value="search">
     </form>
 
 </body>

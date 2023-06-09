@@ -10,12 +10,12 @@
 <?php
 echo "<h1> search results</h1>";
 
-if (isset($_POST['search'])) {
-    $Search = $_POST['search'];
-    echo $Search . "<br>";
-} else {
-    echo "資料不完全";  
-}
+// if (isset($_POST['search'])) {
+//     $Search = $_POST['search'];
+//     echo $Search . "<br>";
+// } else {
+//     echo "資料不完全";  
+// }
 
 
 //******** update your personal settings ******** 
@@ -39,10 +39,56 @@ if ($conn->connect_error) {
 
 
 
-if (isset($_POST['search'])) {
-    $Search = $_POST['search'];
+if (isset($_POST['search_course'])) {
+    $SearchCourse = $_POST['search_course'];
 
-    $sql = "SELECT serial_no, title, dept_name FROM course WHERE dept_name LIKE '%$Search%';";	// Set up your SQL query
+    $sql = "SELECT serial_no, title, instructor FROM course WHERE title LIKE '%$SearchCourse%';";	// Set up your SQL query
+    
+    $result = $conn->query($sql);	// Send SQL Query
+
+    echo "results:". $result->num_rows . "<br>";
+    if ($result->num_rows > 0) {
+        $counter = 0; // Initialize a counter to keep track of the number of courses
+        
+        while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+            // Check if the counter is divisible by 3 to start a new row
+            if ($counter % 3 == 0) {
+                echo "<div class='row'>"; // Start a new row
+            }
+            
+            // Display the course details in a block
+            echo "  
+            <div class= 'course-block'>
+                <a href='course_detail.php?serial_no=".$row['serial_no']."'>
+                    <h3>Serial No: " .$row['serial_no']."</h3>
+                </a>
+                    <p>Title: ".$row['title']."</p>
+                    <p>Instructor: ".$row['instructor']."</p>
+            </div>";
+
+            echo "------------------------------------";
+
+            // Increment the counter
+            $counter++;
+            
+            // Check if the counter is divisible by 3 to end the row
+            if ($counter % 3 == 0) {
+                echo "</div>"; // End the row
+            }
+        }
+        
+        // Check if there are any remaining courses to close the last row
+        if ($counter % 3 != 0) {
+            echo "</div>"; // Close the last row
+        }
+    } else {
+        echo "0 results";
+    }
+} 
+else if (isset($_POST['search_name'])) {
+    $SearchName = $_POST['search_name'];
+
+    $sql = "SELECT serial_no, title, instructor FROM course WHERE instructor LIKE '%$SearchName%';";	// Set up your SQL query
     
     $result = $conn->query($sql);	// Send SQL Query
 
@@ -63,7 +109,7 @@ if (isset($_POST['search'])) {
                     <h3>Serial No: " .$row['serial_no']."</h3>
                 </a>
                 <p>Title: ".$row['title']."</p>
-                    <p>Department: ".$row['dept_name']."</p>
+                    <p>Instructor: ".$row['instructor']."</p>
             </div>";
 
             echo "------------------------------------";
@@ -87,7 +133,6 @@ if (isset($_POST['search'])) {
 } else {
     echo "資料不完全";
 }
-
 
 				
 ?>

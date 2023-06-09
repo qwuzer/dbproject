@@ -42,13 +42,13 @@ WHERE
 
 CREATE TABLE IF NOT EXISTS `instructor` (
     `id` INT AUTO_INCREMENT,
-    `i_name` char(100) ,
+    `i_name` varchar(100) ,
     `department_name` varchar(100),
     primary key (`id`),
     FOREIGN KEY (`department_name`) references `department` (`dept_name`)
 ) ENGINE=INNODB CHARACTER SET=utf8 COLLATE=utf8_bin
 
-INSERT INTO `instructor`(`i_name`)
+INSERT INTO `instructor`(`i_name` , `department_name`)
 select
     distinct `instructor` , `dept_name`
 from 

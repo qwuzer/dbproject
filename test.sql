@@ -1,9 +1,11 @@
 USE `team14`;
 
+
 CREATE TABLE IF NOT EXISTS `course` (
     `serial_no`   char(4) CHARACTER SET=utf8 COLLATE=utf8_general_ci,
     `course_code`    varchar(10),
     `dept_name`	varchar(100),
+    `course_level` varchar (100),
     `title`			varchar(200),
     `credits`		numeric(2, 0) check (credits > 0),
     `R/S/G`            varchar(10), -- requseted/selected/general
@@ -12,7 +14,7 @@ CREATE TABLE IF NOT EXISTS `course` (
     `instructor`  varchar(100),
     `time_location` varchar(100),
     primary key (`serial_no`),
-    FOREIGN key references `department` (`dept_name`)
+    FOREIGN key `dept_name` references `department` (`dept_name`)
 ) ENGINE=INNODB CHARACTER SET=utf8 COLLATE=utf8_bin;
 
 -- Create the time_slot table
@@ -82,7 +84,7 @@ CREATE TABLE IF NOT EXISTS `classroom` (
 
 CREATE TABLE IF NOT EXISTS `user` (
     `user_id` int,
-    `name` varchar(100), 
+    `name` varchar(100),
     `email` varchar(1000),
     `password`    varchar(100),
     primary key (`user_id`)
@@ -102,6 +104,43 @@ CREATE TABLE IF NOT EXISTS `post` (
     FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`)
 ) ENGINE=INNODB CHARACTER SET=utf8 COLLATE=utf8_bin 
 
+
+CREATE TABLE IF NOT EXISTS `section` (
+    `sec_id` varchar(8),
+    `serial_no`  char(4) CHARACTER SET utf8 COLLATE utf8_general_ci,
+    `semester` varchar(8),
+    `year`  varchar(8),
+    `code` varchar(4),
+    `time_slot_id` int,
+    primary key (`sec_id`, `serial_no`, `semester`, `year`),
+    foreign key ( `serial_no`) references `course` (`serial_no`),
+    FOREIGN key ( `code` ) references `classroom` (`code`) 
+)ENGINE=INNODB CHARACTER SET=utf8 COLLATE=utf8_bin;
+ 
+INSERT INTO `section` (`sec_id`, `serial_no`, `semester`, `year`, `code`, `time_slot_id`)
+SELECT
+    1 AS `sec_id`,
+    `serial_no`,
+    'fall' AS `semester`,
+    2023 AS `year`,
+    (SELECT `code` FROM `classroom` LIMIT 1) AS `code`,
+    (SELECT `time_slot_id` FROM `time_slot` LIMIT 1) AS `time_slot_id`
+FROM
+    `course` JOIN `time_slot` ON course.serial_no = time_slot.course_serial_no ;
+
+
+Create table if not exists `teaches` (
+    `id` int,
+    `course_code` varchar(10),
+    `sec_id` varchar(8),
+    `semester` varchar(8),
+    `year` varchar(8),
+    primary key (`id` , `course_code`, `sec_id`, `semester`, `year`),
+    foreign key (`id`) references `instructor` (`id`)
+)
+
+
+    
 
 INSERT INTO course VALUES
 ('1475','L0C9009','文學院','高行健的文學與藝術（進階）',2.0,'選','半','','李志宏 蘇子中 白適銘 何康國 吳義芳','四 3-4 本部 教201演講廳'),

@@ -1,6 +1,14 @@
 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Results</title>
+    <link rel="stylesheet" type="text/css" href="/style/search.css">
+</head>
+<body>
+
 <?php
-echo "<h1> search for course</h1>";
+echo "<h1> search results</h1>";
 
 if (isset($_POST['search'])) {
     $Search = $_POST['search'];
@@ -38,7 +46,7 @@ if (isset($_POST['search'])) {
     
     $result = $conn->query($sql);	// Send SQL Query
 
-    echo $result->num_rows . "<br>";
+    echo "results:". $result->num_rows . "<br>";
     if ($result->num_rows > 0) {
         $counter = 0; // Initialize a counter to keep track of the number of courses
         
@@ -49,15 +57,17 @@ if (isset($_POST['search'])) {
             }
             
             // Display the course details in a block
-            echo "
-            <div class='course-block'>
+            echo "  
+            <div class= 'course-block'>
                 <a href='course_detail.php?serial_no=".$row['serial_no']."'>
-                    <p>Serial No: ".$row['serial_no']."</p>
-                    <p>Title: ".$row['title']."</p>
-                    <p>Department: ".$row['dept_name']."</p>
+                    <h3>Serial No: " .$row['serial_no']."</h3>
                 </a>
+                <p>Title: ".$row['title']."</p>
+                    <p>Department: ".$row['dept_name']."</p>
             </div>";
-            
+
+            echo "------------------------------------";
+
             // Increment the counter
             $counter++;
             

@@ -1,0 +1,23 @@
+.course-block {
+    width: 300px;
+    height: 200px;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+  }
+  
+  .course-block p {
+    margin-bottom: 5px;
+  }
+  
+  .course-block a {
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .course-block a:hover {
+    text-decoration: underline;
+  }
+  

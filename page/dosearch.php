@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>Search Results</title>
-    <link rel="stylesheet" type="text/css" href="/style/search.css">
+    <link rel="stylesheet" type="text/css" href="/webalizer/dbproject/style/search.css">
 </head>
 <body>
 
@@ -29,7 +29,8 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-if (isset($_POST['search_course']) || isset($_POST['search_name']) || isset($_POST['search_dept']) ) {
+if (isset($_POST['search_course']) || isset($_POST['search_name']) || isset($_POST['search_dept']) 
+    || isset($_POST['search_day']) || isset($_POST['search_time1']) || isset($_POST['search_time2']) ) {
     
     $sql = "SELECT serial_no, title, instructor FROM course WHERE 1";
 
@@ -44,10 +45,31 @@ if (isset($_POST['search_course']) || isset($_POST['search_name']) || isset($_PO
         $sql .= " AND instructor LIKE '%$searchName%'";
     }
 
-    if (isset($_POST['search_dept'])) {
+    if ( isset($_POST['search_dept'])) {
         $searchDept = $_POST['search_dept'];
         $sql .= " AND dept_name =  '$searchDept'";
+
     }
+
+    // if( isset($_POST['search_day']) )
+    // {
+    //     $searchDay = $_POST['search_day'];
+    //     $sql .= " AND (course.serial_no IN (SELECT course_serial_no FROM time_slot WHERE time_slot.day1 = '一' OR time_slot.day2 = '一'))";
+    // }
+
+    // if( isset($_POST['search_time1']) )
+    // {
+    //     $searchTime1 = $_POST['search_time1'];
+    //     $sql .= " AND (course.serial_no IN (SELECT course_serial_no FROM time_slot WHERE time_slot.start_time1 = '$searchTime1' OR time_slot.start_time2 = '$searchTime1'))";
+    // }
+
+    // if( isset($_POST['search_time2']) )
+    // {
+    //     $searchTime2 = $_POST['search_time2'];
+    //     $sql .= " AND (course.serial_no IN (SELECT course_serial_no FROM time_slot WHERE time_slot.end_time1 = '$searchTime2' OR time_slot.end_time2 = '$searchTime2'))";
+    // }
+
+
     echo $sql;
 
     $result = $conn->query($sql);	// Send SQL Query
@@ -122,5 +144,9 @@ if (isset($_POST['search_course']) || isset($_POST['search_name']) || isset($_PO
     echo "資料不完全";
 }
 
+
+if( isset($_POST['search_day']) || isset($_POST['search_day1']) || isset($_POST['search_day2'])){
+
+}
 				
 ?>

@@ -24,17 +24,34 @@ CREATE TABLE IF NOT EXISTS `time_slot` (
     `day` VARCHAR(10),
     `start_time` char(2),
     `end_time` char(2),
+    `day` VARCHAR(10),
+    `start_time` char(2),
+    `end_time` char(2),
     PRIMARY KEY (`time_slot_id`),
     FOREIGN KEY (`course_serial_no`) REFERENCES `course` (`serial_no`)
 ) ENGINE=INNODB CHARACTER SET=utf8 COLLATE=utf8_general_ci;
 
 -- Populate the time_slot table from the course table
-INSERT INTO `time_slot` (`course_serial_no`, `day`, `start_time`, `end_time`)
+-- INSERT INTO `time_slot` (`course_serial_no`, `day`, `start_time`, `end_time`)
+-- SELECT
+--     `serial_no`,
+--     REGEXP_SUBSTR(`time_location`, '[一二三四五六]') AS `day`,
+--     REGEXP_SUBSTR(`time_location`, '[1-9](?=-)') AS `start_time`,
+--     REGEXP_SUBSTR(`time_location`, '(?<=-)[1-9]' ) AS `end_time`
+-- FROM
+--     `course`
+-- WHERE
+--     `time_location` IS NOT NULL;
+
+INSERT INTO `time_slot` (`course_serial_no`, `day1`, `start_time1`, `end_time1`, `day2`, `start_time2`, `end_time2`)
 SELECT
     `serial_no`,
     REGEXP_SUBSTR(`time_location`, '[一二三四五六]') AS `day`,
     REGEXP_SUBSTR(`time_location`, '[1-9](?=-)') AS `start_time`,
-    REGEXP_SUBSTR(`time_location`, '(?<=-)[1-9]' ) AS `end_time`
+    REGEXP_SUBSTR(`time_location`, '(?<=-)[1-9]') AS `end_time`,
+    CASE WHEN LENGTH(`time_location`) - LENGTH(REPLACE(`time_location`, ' ', '')) >= 5 THEN REGEXP_SUBSTR(SUBSTRING_INDEX(SUBSTRING_INDEX(`time_location`, ' ', 5), ' ', -1), '[一二三四五六]') ELSE NULL END AS `day2`,
+    CASE WHEN LENGTH(`time_location`) - LENGTH(REPLACE(`time_location`, ' ', '')) >= 5 THEN REGEXP_SUBSTR(SUBSTRING_INDEX(SUBSTRING_INDEX(`time_location`, ' ', 6), ' ', -1), '[1-9](?=-)') ELSE NULL END AS `starttime2`,
+    CASE WHEN LENGTH(`time_location`) - LENGTH(REPLACE(`time_location`, ' ', '')) >= 5 THEN REGEXP_SUBSTR(SUBSTRING_INDEX(SUBSTRING_INDEX(`time_location`, ' ', 6), ' ', -1), '(?<=-)[1-9]') ELSE NULL END AS `endtime2`
 FROM
     `course`
 WHERE
@@ -83,7 +100,7 @@ CREATE TABLE IF NOT EXISTS `classroom` (
 
 
 CREATE TABLE IF NOT EXISTS `user` (
-    `user_id` int,
+    `user_id` int Auto_increment,
     `name` varchar(100),
     `email` varchar(1000),
     `password`    varchar(100),
@@ -98,7 +115,7 @@ CREATE TABLE IF NOT EXISTS `post` (
     loading	decimal(2,0) NULL,	
     usefulness	decimal(2,0) NULL,	
     serial_no	char(4),
-    user_id	int(10),
+    user_id	int(10) AUTO_INCREMENT,
     primary key (`post_id`),
     FOREIGN KEY (`serial_no`) REFERENCES `course` (`serial_no`),
     FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`)

@@ -1,15 +1,7 @@
 <?php
 
 session_start();
-
-//******** update your personal settings ******** 
-$servername = "140.122.184.125:3307";
-$username = "team14";
-$password = "kQVYoJa7S0NIXlCN";
-$dbname = "team14";
-
-//Connecting to and selecting a MySQL database
-$conn = new mysqli($servername, $username, $password, $dbname);
+include "conn.php";
 
 if (!$conn->set_charset("utf8")) {
     printf("Error loading character set utf8: %s\n", $conn->error);
@@ -20,8 +12,6 @@ if (!$conn->set_charset("utf8")) {
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
-
-
 
 if (isset($_GET['serial_no'])) {
     $serialNo = $_GET['serial_no'];

@@ -72,7 +72,7 @@
 .table_box{
   width: 700px; 
   border: 1px; 
-  bgcolor: #cccccc; 
+  background-color: white; 
   /*align-items: center;*/
 }
 
@@ -111,3 +111,19 @@
     text-decoration: underline;
   }
 
+
+  .background{
+    z-index: 100;
+    background: url("https://images.unsplash.com/photo-1636998094434-96c8e4635184?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1173&q=80");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-color: yellow; */
+
+    top: -1000px;
+
+
+    height: 98vh;
+    width: 99vw;
+    opacity: 0.2;
+  }

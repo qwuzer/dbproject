@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>登入</title>
-    <link rel="stylesheet" href="/style/login.css">
+    <link rel="stylesheet" href="../style/login.css">
 </head>
 <body>
     <div class="box">
@@ -23,15 +23,18 @@
             </nav>
         </div>
 
-        <div class="log_in_box">
-            <br><br><br><br><br>
-            <p>登入您的帳號</p>
-            <br>
-            <p>電子郵件：<input type="text" class="only_underline"></p>
-            <p>　　密碼：<input type="text" class="only_underline"></p>
-            <br>
-            <button class="login_button">登入</button>
-        </div>
+        <form action="login.php" method="post">
+            <div class="log_in_box">
+                <br><br><br><br><br>
+                <p>登入您的帳號</p>
+                <br>
+                <p>電子郵件：<input type="email" class="only_underline" name="email" required="required" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/></p>
+                <p>　　密碼：<input type="password" class="only_underline" name="password" required="required"/></p>
+                <br>
+                <button class="login_button" type="submit">登入</button>
+            </div>
+        </form>
+
         
 
         

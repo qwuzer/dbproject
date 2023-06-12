@@ -88,10 +88,15 @@ if (isset($_POST['search_course']) || isset($_POST['search_name']) || isset($_PO
     if( isset($_POST['search_emi']) )
     {
         $searchEmi = $_POST['search_emi'];
-        $sql .= "AND EMI = '$searchEmi'";
+       // echo $searchEmi;
+        if( $searchEmi == "" ){
+            $sql .= " AND EMI = '$searchEmi'";
+        } else {
+            $sql .= " AND EMI != N'是'";
+        }
     }
 
-    //echo $sql;
+    echo $sql;
 
     $result = $conn->query($sql);	// Send SQL Query
     

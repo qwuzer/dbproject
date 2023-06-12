@@ -96,12 +96,17 @@ if (isset($_POST['search_course']) || isset($_POST['search_name']) || isset($_PO
         }
     }
 
-    echo $sql;
+    //echo $sql;
 
     $result = $conn->query($sql);	// Send SQL Query
     
 
     echo "results:". $result->num_rows . "<br>";
+    if( $result->num_rows == 0 ){
+        echo "No results found";
+        header("Location: http://localhost/webalizer/dbproject/page/search.php");
+        exit;
+    }
     if ($result->num_rows > 0) {
         $counter = 0; // Initialize a counter to keep track of the number of courses
         

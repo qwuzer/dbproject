@@ -11,7 +11,6 @@
     <div class="box">
 
         <div class="background">
-            <!-- hehe -->
         </div>
 
         <div >

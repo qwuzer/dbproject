@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 //******** update your personal settings ******** 
 $servername = "140.122.184.125:3307";
 $username = "team14";
@@ -18,6 +20,8 @@ if (!$conn->set_charset("utf8")) {
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
+
+
 
 if (isset($_GET['serial_no'])) {
     $serialNo = $_GET['serial_no'];
@@ -87,9 +91,5 @@ if (isset($_GET['serial_no'])) {
 } else {
     echo "Invalid request";
 }
-
-
-
-
 
 ?>

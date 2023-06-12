@@ -16,8 +16,32 @@
     color: #333;
     text-decoration: none;
   }
-  
+
   .course-block a:hover {
     text-decoration: underline;
   }
+
+  .course-block p.instructor{
+    color: #333;
+  }
+
+  .course-block p.instructor:hover{
+    text-decoration: underline;
+    content: attr(data-tooltip);
+  } 
+
   
+.course-block p.instructor:hover::after {
+  color: #500;
+  content: attr(data-tooltip);
+  /* display: block;
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  width: 200px;
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 5px; */
+}

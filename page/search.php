@@ -62,8 +62,15 @@
                     </select>
                 </td>
             </tr>
-            
+
+            <tr>
+                <th>EMI</th>
+                <td bgcolor="#FFFFFF"><input  type="radio" name="search_emi" value='是'>
+                    yes
+                    <input  type="radio" name="search_emi" value='0' >
+                    no</td>
             </tr>
+
             <th><label for="search_day">Select Day:</label></th>
                 <td bgcolor="grey">
                     <select name="search_day"  id = "search_day">

@@ -39,46 +39,7 @@
                 <th><label for="search_dept">Select Department:</label></th>
                   <td bgcolor="grey">
                     <select name="search_dept"  id = "search_dept">
-                      <option value=""></option>
-                          <?php
-                              //******** update your personal settings ******** 
-                              $servername = "140.122.184.125:3307";
-                              $username = "team14";
-                              $password = "kQVYoJa7S0NIXlCN";
-                              $dbname = "team14";
-  
-                              //Connecting to and selecting a MySQL database
-                              $conn = new mysqli($servername, $username, $password, $dbname);
-  
-                              if (!$conn->set_charset("utf8")) {
-                                  printf("Error loading character set utf8: %s\n", $conn->error);
-                                  exit();
-                              }
-  
-                              // Check connection
-                              if ($conn->connect_error) {
-                                  die("Connection failed: " . $conn->connect_error);
-                              } 
-  
-                              $sql = "SELECT dept_name FROM department";
-                              $result = $conn->query($sql);
-  
-                              
-                              if ($result->num_rows > 0) {
-                                  while ($row = $result->fetch_assoc()) {
-                                      $deptName = $row['dept_name'];                                  
-                                      echo "<option value='$deptName'>$deptName</option>";
-                                  }
-                              } else {
-                                  echo "<option value=''>No departments found</option>";
-                              }
-                          ?>
-                      </select>
-                  </td>
-              </tr>
-              
-              <tr>
-                <th><label for="search_day">Select Day:</label></th>
+
                 <td bgcolor="grey">
                   <select name="search_day"  id = "search_day">
                         <option value= "" ></option>

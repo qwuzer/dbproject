@@ -39,8 +39,8 @@ if ($email && $passwd) {
 
         // Check roles
         if ($email === 'test@test') {
-            //header('Location: backend.php');
-            header('Location: coursemanage.php');
+            header('Location: backend.php');
+            //header('Location: coursemanage.php');
         } else {
             header('Location: user.php');
         }

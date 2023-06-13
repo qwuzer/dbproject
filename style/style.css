@@ -33,24 +33,25 @@
 }
 .navbar a{
     color: aliceblue;
-    font-size: 20px;
+    font-size: 2vh;
     text-decoration: none;
     /* font-family: fantasy; */
 }
 
 .signup_pos{
     position: absolute;
-    right: 3%;
+    right: 3vw;
 }
 
 .login_pos{
     position: absolute;
-    right: 7%;
+    right: 7vw;
 }
 
 .search_pos{
     position: absolute;
     left: 5vw;
+    font-size: 2vh;
     font-weight: 700;
 }
 

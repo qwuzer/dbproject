@@ -1,3 +1,58 @@
+
+function validateForm() {
+    var comment = document.getElementById('comment').value;
+    if (comment.trim() === '') {
+      alert('Please enter a comment.');
+      return false;
+    }
+
+    const radioGroupHelpfulness = document.getElementsByName('rate_helpfulness');
+    const radioGroupEasiness = document.getElementsByName('rate_easiness');
+    const radioGroupLoading = document.getElementsByName('rate_loading');
+    let isChecked = false;
+  
+    for (let i = 0; i < radioGroupHelpfulness.length; i++) {
+      if (radioGroupHelpfulness[i].checked) {
+        isChecked = true;
+        break;
+      }
+    }
+    if (!isChecked) {
+        alert('Please select a rating for Helpfulness.');
+        return false; // Prevent form submission
+    }
+
+    isChecked = false;
+    for(let i = 0; i < radioGroupEasiness.length; i++) {
+        if(radioGroupEasiness[i].checked) {
+            isChecked = true;
+            break;
+        }
+    }
+    if(!isChecked) {
+        alert('Please select a rating for Easiness.');
+        return false; // Prevent form submission
+    }
+
+    isChecked = false;
+    for(let i = 0; i < radioGroupLoading.length; i++) {
+        if(radioGroupLoading[i].checked) {
+            isChecked = true;
+            break;
+        }
+    }
+    if(!isChecked) {
+        alert('Please select a rating for Loading.');
+        return false; // Prevent form submission
+    }
+
+    
+  
+    return true; // Allow form submission
+  }
+
+
+
 function showCommentWindow(serialNo) {
     // Create the modal/pop-up window element
     var modal = document.createElement('div');
@@ -17,43 +72,38 @@ function showCommentWindow(serialNo) {
     // Add content to the modal/pop-up window
     modal.innerHTML = `
     <h2>Leave a Comment and Rating</h2>
-    <form action="post.php" method="post" id="feedback-form">
+    <form action="post.php" method="post" id="feedback-form"  onsubmit="return validateForm()">
         <input type="hidden" id="serialNo" name="serial_no" value="${serialNo}">
         <label for="comment">Comment:</label>
         <textarea id="comment" name="content" style="width: calc(100% - 20px); margin-bottom: 10px;"></textarea>
-        
-
-
-
-        <label for="easiness">Easiness:</label>
-        <div class="rate">
-            <input type="radio" id="star5" name="rate_easiness" value="5" />
-            <label for="star5" title="text">5 stars</label>
-            <input type="radio" id="star4" name="rate_easiness" value="4" />
-            <label for="star4" title="text">4 stars</label>
-            <input type="radio" id="star3" name="rate_easiness" value="3" />
-            <label for="star3" title="text">3 stars</label>
-            <input type="radio" id="star2" name="rate_easiness" value="2" />
-            <label for="star2" title="text">2 stars</label>
-            <input type="radio" id="star1" name="rate_easiness" value="1" />
-            <label for="star1" title="text">1 star</label>
-        </div>
-
             
         <label for="helpfulness">Helpfulness:</label>
         <div class="rate">
             <input type="radio" id="star5_helpfulness" name="rate_helpfulness" value="5" />
             <label for="star5_helpfulness" title="text">5 stars</label>
-            <input type="radio" id="star4_helpfulness" name="rate_helpfulness" value="4" />
+            <input type="radio" id="star4_helpfulness" name="rate_helpfulness" value="4"  />
             <label for="star4_helpfulness" title="text">4 stars</label>
-            <input type="radio" id="star3_helpfulness" name="rate_helpfulness" value="3" />
+            <input type="radio" id="star3_helpfulness" name="rate_helpfulness" value="3"  />
             <label for="star3_helpfulness" title="text">3 stars</label>
-            <input type="radio" id="star2_helpfulness" name="rate_helpfulness" value="2" />
+            <input type="radio" id="star2_helpfulness" name="rate_helpfulness" value="2"  />
             <label for="star2_helpfulness" title="text">2 stars</label>
-            <input type="radio" id="star1_helpfulness" name="rate_helpfulness" value="1" />
+            <input type="radio" id="star1_helpfulness" name="rate_helpfulness" value="1"  />
             <label for="star1_helpfulness" title="text">1 star</label>
         </div>
 
+        <label for="helpfulness">Easiness:</label>
+        <div class="rate">
+            <input type="radio" id="star5_easiness" name="rate_easiness" value="5" />
+            <label for="star5_easiness" title="text">5 stars</label>
+            <input type="radio" id="star4_easiness" name="rate_easiness" value="4"  />
+            <label for="star4_easiness" title="text">4 stars</label>
+            <input type="radio" id="star3_easiness" name="rate_easiness" value="3"  />
+            <label for="star3_easiness" title="text">3 stars</label>
+            <input type="radio" id="star2_easiness" name="rate_easiness" value="2"  />
+            <label for="star2_easiness" title="text">2 stars</label>
+            <input type="radio" id="star1_easiness" name="rate_easiness" value="1"  />
+            <label for="star1_easiness" title="text">1 star</label>
+        </div>
 
         <label for="loading">Loading:</label>
         <div class="rate">
@@ -74,6 +124,8 @@ function showCommentWindow(serialNo) {
     </form>
 
 `;
+
+
 
     // Append the modal to the document body
     document.body.appendChild(modal);

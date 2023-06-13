@@ -29,11 +29,11 @@
               <tr >
                   <th>search by coursename</th>
                   <td><input type="text" name="search_course"  class="boarder_test" /></td>
-              </tr>
+              </tr><!-- 以課程名稱搜尋 -->
               <tr>
                   <th>search by instructor name</th>
-                  <td bgcolor="white"><input type="text" name="search_name"  /></td>
-              </tr>
+                  <td bgcolor="white"><input type="text" name="search_name"  class="boarder_test" /></td>
+              </tr><!-- 以老師名稱搜尋 -->
 
               <tr>
                 <th>EMI</th>
@@ -41,7 +41,7 @@
                     yes
                     <input  type="radio" name="search_emi" value='0' >
                     no</td>
-              </tr>
+              </tr> <!-- 是否為EMI -->
 
               <tr>
                 <th><label for="search_dept">Select Department:</label></th>
@@ -54,11 +54,11 @@
                             $username = "team14";
                             $password = "kQVYoJa7S0NIXlCN";
                             $dbname = "team14";
-                              //Connecting to and selecting a MySQL database
-                              $conn = new mysqli($servername, $username, $password, $dbname);
-                              if (!$conn->set_charset("utf8")) {
-                                printf("Error loading character set utf8: %s\n", $conn->error);
-                                exit();
+                            //Connecting to and selecting a MySQL database
+                            $conn = new mysqli($servername, $username, $password, $dbname);
+                            if (!$conn->set_charset("utf8")) {
+                              printf("Error loading character set utf8: %s\n", $conn->error);
+                              exit();
                             }
 
                             // Check connection

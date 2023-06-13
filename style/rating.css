@@ -70,7 +70,7 @@
     left: 7vw;
     right: 7vw;
     height: autofill;
-    width: 86vw;
+    width: 79vw;
 
     padding: 5vh;
 
@@ -84,48 +84,51 @@
 }
 
 .three_point{
-  display:flex;
-  height:10vh;
-  width:25vw;
-  align-items: center;
-  justify-content: center;
-  /* background-color:red; */
+    display:flex;
+    height:10vh;
+    width:25vw;
+    align-items: center;
+    justify-content: center;
+   /* background-color:red; */
 }
 
 .div_E{
-  width:8vw;
+    width:8vw;
+    height:9vh;
   
-  border-width: 1px;
-  border-style:solid;
-  border-color: red;
-  border-radius: 1vh;
-  background-color: pink;
+    border-width: 1px;
+    border-style:solid;
+    border-color: red;
+    border-radius: 1vh;
+    background-color: pink;
 
-  padding:1vh
+    padding:1vh
 }
 
 .div_L{
-  width:8vw;
+    width:8vw;
+    height:9vh;
   
-  border-width: 1px;
-  border-style:solid;
-  border-color: green;
-  border-radius: 1vh;
-  background-color: lightgreen;
+    border-width: 1px;
+    border-style:solid;
+    border-color: green;
+    border-radius: 1vh;
+    background-color: lightgreen;
 
-  padding:1vh;
+    padding:1vh;
 }
 
 .div_U{
-  width:8vw;
+    width:8vw; 
+    height:9vh;
   
-  border-width: 1px;
-  border-style:solid;
-  border-color: #FFFF00;
-  border-radius: 1vh;
-  background-color: lightyellow;
+    border-width: 1px;
+    border-style:solid;
+    border-color: #DD9900;
+    border-radius: 1vh;
+    background-color: #FFFF99;
 
-  padding:1vh
+    padding:1vh
 }
   
 .rate {
@@ -176,7 +179,7 @@
     top: -1000px;
 
 
-    height: 10000vh;
+    height: 100vh;
     width: 99vw;
     opacity: 0.2;
 }

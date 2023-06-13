@@ -41,4 +41,3 @@ if (isset($_POST['serial_no'])&&isset($_POST['course_code']) &&isset($_POST['dep
 				
 ?>
 
-

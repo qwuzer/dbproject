@@ -80,7 +80,7 @@
                 
                     echo "<h1>Posts:</h1>";
                     
-                    $postsql = "SELECT easiness , loading , usefulness FROM post where serial_no = '$serialNo'";
+                    $postsql = "SELECT content , easiness , loading , usefulness FROM post where serial_no = '$serialNo'";
                     $postresult = $conn->query($postsql);
                   
                     if( $postresult->num_rows > 0){  //get average ratings of post
@@ -125,15 +125,24 @@
                         echo "</div>";
                     }
                 
-                
+                    $postresult = $conn->query($postsql);
                     while($postrow = mysqli_fetch_array($postresult, MYSQLI_ASSOC))
                     {
+                        $count = 0;
+                        if( $count % 2 == 1){
+                            echo "<div class='post_odd'>";
+                        }
+                        else{
+                            echo "<div class='post_even'>";
+                        }
+
                         $easiness = $postrow['easiness'];
                         $loading = $postrow['loading'];
                         $usefulness = $postrow['usefulness'];
                         echo "<p> Easiness: ".$easiness." Loading: ".$loading." Usefulness: ".$usefulness."</p>";
-                        echo "<p> Comment: ".$postrow['comment']."</p>";
+                        echo "<p> Comment: ".$postrow['content']."</p>";
                     }
+                    
                 
                 } else {
                     echo "Course not found";

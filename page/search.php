@@ -37,7 +37,7 @@
 
               <tr>
                 <th>EMI</th>
-                <td bgcolor="#FFFFFF"><input  type="radio" name="search_emi" value='是'>
+                <td bgcolor="white"><input  type="radio" name="search_emi" value='是'>
                     yes
                     <input  type="radio" name="search_emi" value='0' >
                     no</td>
@@ -45,7 +45,7 @@
 
               <tr>
                 <th><label for="search_dept">Select Department:</label></th>
-                  <td bgcolor="grey">
+                  <td bgcolor="white">
                   <select name="search_dept"  id = "search_dept">
                         <option value=""></option>
                         <?php
@@ -83,8 +83,8 @@
                 </td>
             </tr>
 
-
-                <td bgcolor="grey">
+            <th><label for="search_day">Select Day:</label></th>
+                <td bgcolor="white">
                   <select name="search_day"  id = "search_day">
                         <option value= "" ></option>
                         <option value="一">一</option>
@@ -98,7 +98,7 @@
 
               <tr> -->
                 <th><label for="search_time1">Select time1:</label></th>
-                <td bgcolor="grey">
+                <td bgcolor="white">
                     <select name="search_time1" id="search_time1">
                         <option value=""></option>
                         <?php
@@ -112,7 +112,7 @@
 
               <tr> -->
                 <th><label for="search_time2">Select time2:</label></th>
-                <td bgcolor="grey">
+                <td bgcolor="white">
                     <select name="search_time2" id="search_time1">
                         <option value=""></option>
                         <?php

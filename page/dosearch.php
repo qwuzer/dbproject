@@ -169,7 +169,7 @@
                         <h3>Serial No: " .$row['serial_no']."</h3>
                     </a>
                     <p>Title: ".$row['title']."</p>
-                    <p class = 'instructor' data-tooltip= ‘".$dept_name."’  ".$dept_name."'>Instructor: ".$row['instructor']."</p>
+                    <p class = 'instructor' data-tooltip=  ' ".$dept_name."'  ".$dept_name."'>Instructor: ".$row['instructor']."</p>
                 </div>";
     
                 // Display course ratings

@@ -27,11 +27,11 @@
       <form action="dosearch.php" method="post" align=>	
         <table class="table_box"  >
               <tr >
-                  <th>search by coursename</th>
+                  <th>Search by coursename</th>
                   <td><input type="text" name="search_course"  class="boarder_test" /></td>
               </tr><!-- 以課程名稱搜尋 -->
               <tr>
-                  <th>search by instructor name</th>
+                  <th>Search by instructor name</th>
                   <td bgcolor="white"><input type="text" name="search_name"  class="boarder_test" /></td>
               </tr><!-- 以老師名稱搜尋 -->
 

@@ -70,9 +70,9 @@
 
 
 .table_box{
-  width: 700px; 
+  width: 500px; 
   border: 1px; 
-  background-color: white; 
+  background-color: white;; 
   align-items: center;
   justify-content: center;
 }

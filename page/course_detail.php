@@ -1,5 +1,14 @@
-<?php
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Course Detail</title>
+    <link rel="stylesheet" type="text/css" href="../style/rating.css">
+    <script src="../script/post.js"></script>
+</head>
 
+<body>
+    
+<?php
 session_start();
 include "conn.php";
 
@@ -36,13 +45,16 @@ if (isset($_GET['serial_no'])) {
         <p>Instructor: ".$row['instructor']."</p>
         <p>Time Location: ".$row['time_location']."</p>";
    
+        //echo $_SESSION['login'];
         $login = $_SESSION['login'];
-        // $login = 0;
-        // echo $login;
         if(  $login == TRUE ){
+            //echo "
+            // <a href='post.php?serial_no=".$row['serial_no']."'>
+            //     <h3>Post a comment: " .$row['serial_no']."</h3>
+            // </a>";
             echo "
-            <a href='post.php?serial_no=".$row['serial_no']."'>
-                <h3>Post a comment: " .$row['serial_no']."</h3>
+            <a href='#' onclick='showCommentWindow(" . $row['serial_no'] . ")'>
+                <h3>Post a comment: " . $row['serial_no'] . "</h3>
             </a>";
         }
         else{
@@ -98,4 +110,8 @@ if (isset($_GET['serial_no'])) {
     echo "Invalid request";
 }
 
+
 ?>
+
+</body>
+</html>

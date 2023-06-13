@@ -31,6 +31,7 @@ if ($email && $passwd) {
     if ($result->num_rows) {
 
         $_SESSION['login'] = TRUE;
+        
 
 		$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
         
@@ -42,7 +43,9 @@ if ($email && $passwd) {
             header('Location: backend.php');
             //header('Location: coursemanage.php');
         } else {
-            header('Location: user.php');
+            //header('Location: user.php');
+            //echo $_SESSION['login'];
+            header('Location: ../index.php');
         }
 
     } else {
@@ -61,5 +64,5 @@ if (isset($_SESSION['msg']))
     echo "<p class='danger'> {$_SESSION['msg']} </p>";
 }
 
-session_unset();
+//session_unset();
 ?>

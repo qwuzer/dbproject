@@ -29,36 +29,37 @@
               <tr >
                   <th>search by coursename</th>
                   <td><input type="text" name="search_course"  class="boarder_test" /></td>
-              </tr>
+              </tr><!-- 以課程名稱搜尋 -->
               <tr>
                   <th>search by instructor name</th>
-                  <td bgcolor="white"><input type="text" name="search_name"  /></td>
-              </tr>
+                  <td bgcolor="white"><input type="text" name="search_name"  class="boarder_test" /></td>
+              </tr><!-- 以老師名稱搜尋 -->
 
               <tr>
                 <th>EMI</th>
-                <td bgcolor="#FFFFFF"><input  type="radio" name="search_emi" value='是'>
+                <td bgcolor="#FFFFFF">
+                    <input  type="radio" name="search_emi" value='是'>
                     yes
                     <input  type="radio" name="search_emi" value='0' >
                     no</td>
-              </tr>
+              </tr> <!-- 是否為EMI -->
 
               <tr>
                 <th><label for="search_dept">Select Department:</label></th>
                   <td bgcolor="grey">
-                  <select name="search_dept"  id = "search_dept">
-                        <option value=""></option>
+                  <select name="search_dept"  id = "search_dept" >
+                        <option value="" ></option>
                         <?php
                             //******** update your personal settings ******** 
                             $servername = "140.122.184.125:3307";
                             $username = "team14";
                             $password = "kQVYoJa7S0NIXlCN";
                             $dbname = "team14";
-                              //Connecting to and selecting a MySQL database
-                              $conn = new mysqli($servername, $username, $password, $dbname);
-                              if (!$conn->set_charset("utf8")) {
-                                printf("Error loading character set utf8: %s\n", $conn->error);
-                                exit();
+                            //Connecting to and selecting a MySQL database
+                            $conn = new mysqli($servername, $username, $password, $dbname);
+                            if (!$conn->set_charset("utf8")) {
+                              printf("Error loading character set utf8: %s\n", $conn->error);
+                              exit();
                             }
 
                             // Check connection

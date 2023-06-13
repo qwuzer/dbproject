@@ -90,9 +90,9 @@ if (isset($_POST['search_course']) || isset($_POST['search_name']) || isset($_PO
         $searchEmi = $_POST['search_emi'];
        // echo $searchEmi;
         if( $searchEmi == "" ){
-            $sql .= " AND EMI = '$searchEmi'";
+            $sql .= " AND EMI != '是'";
         } else {
-            $sql .= " AND EMI != N'是'";
+            $sql .= " AND EMI = N'是'";
         }
     }
 
@@ -133,7 +133,7 @@ if (isset($_POST['search_course']) || isset($_POST['search_name']) || isset($_PO
                     <h3>Serial No: " .$row['serial_no']."</h3>
                 </a>
                 <p>Title: ".$row['title']."</p>
-                <p class = 'instructor' data-tooltip= '  ".$dept_name."'>Instructor: ".$row['instructor']."</p>
+                <p class = 'instructor' data-tooltip= ‘".$dept_name."’  ".$dept_name."'>Instructor: ".$row['instructor']."</p>
             </div>";
 
             // Display course ratings

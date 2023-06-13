@@ -46,62 +46,29 @@
     font-weight: 700;
 }
 
-.main_display_box{
-    position: absolute;
-    top: 25vh;
-    left: 30vw;
-
-    border-radius: 5vh;
-    border-width: 2px;
-    border-style: solid;
-    border-color: rgb(163, 163, 163);
-
-    height: 35vh;
-    width: 40vw;
-
-    background-color: white;
-    opacity: 0.9;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center; 
-    align-items: center;
+.main_php_display{
+  position: absolute;
+  top: 10vh;
+  left: 10vw;
 }
-
-
-.table_box{
-  width: 700px; 
-  border: 1px; 
-  background-color: white; 
-  align-items: center;
-  justify-content: center;
-}
-
-.boarder_test{
-    outline: none;
-    border: none;
-    border-bottom: 1px solid rgb(163, 163, 163);
-    padding-top: 0.5vh;
-    padding-bottom: 0.5vh;
-}
-
-
-
-
 
 
 .course-block {
-    width: 300px;
-    height: 200px;
-    background-color: #f2f2f2;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    margin: 10px;
-  }
+  border-radius: 2vh;
+  width: 45vh;
+  height: 30vh;
+  background-color: white;
+  border-width: 1px;
+  border-style: solid;
+  border-color:gray;
+  
+  padding: 10px;
+  margin: 10px;
+}
   
   .course-block p {
     margin-bottom: 5px;
+
   }
   
   .course-block a {
@@ -112,6 +79,53 @@
   .course-block a:hover {
     text-decoration: underline;
   }
+
+.three_point{
+  display:flex;
+  height:10vh;
+  width:25vw;
+  align-items: center;
+  justify-content: center;
+  /* background-color:red; */
+}
+
+.div_E{
+  width:8vw;
+  
+  border-width: 1px;
+  border-style:solid;
+  border-color: red;
+  border-radius: 1vh;
+  background-color: pink;
+
+  padding:1vh
+}
+
+.div_L{
+  width:8vw;
+  
+  border-width: 1px;
+  border-style:solid;
+  border-color: green;
+  border-radius: 1vh;
+  background-color: lightgreen;
+
+  padding:1vh;
+}
+
+.div_U{
+  width:8vw;
+  
+  border-width: 1px;
+  border-style:solid;
+  border-color: #FFFF00;
+  border-radius: 1vh;
+  background-color: lightyellow;
+
+  padding:1vh
+}
+
+
 
 
 
@@ -128,32 +142,29 @@
 .course-block p.instructor:hover::after {
 color: #500;
 content: attr(data-tooltip);
-/* display: block;
-position: absolute;
-top: calc(100% + 5px);
-left: 0;
-width: 200px;
-background-color: #f2f2f2;
-border: 1px solid #ccc;
-border-radius: 5px;
-padding: 10px;
-margin-top: 5px; */
 }
 
 
 
-  .background{
+.background{
     z-index: 100;
     background: url("https://images.unsplash.com/photo-1636998094434-96c8e4635184?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1173&q=80");
     background-attachment: fixed;
-    background-repeat: no-repeat;
+    /* background-repeat: no-repeat; */
     background-size: cover;
     /* background-color: yellow; */
 
     top: -1000px;
 
 
-    height: 98vh;
+    height: 10000vh;
     width: 99vw;
     opacity: 0.2;
-  }
+}
+
+
+
+
+
+
+

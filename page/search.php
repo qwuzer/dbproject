@@ -24,8 +24,8 @@
     </div>
 
     <div class="main_display_box">
-      <form action="dosearch.php" method="post">	
-        <table class="table_box">
+      <form action="dosearch.php" method="post" align=>	
+        <table class="table_box"  >
               <tr >
                   <th>search by coursename</th>
                   <td><input type="text" name="search_course"  class="boarder_test" /></td>
@@ -45,8 +45,8 @@
 
               <tr>
                 <th><label for="search_dept">Select Department:</label></th>
-                  <td bgcolor="white">
-                  <select name="search_dept"  id = "search_dept">
+                  <td >
+                  <select name="search_dept"  id = "search_dept" >
                         <option value=""></option>
                         <?php
                             //******** update your personal settings ******** 
@@ -81,9 +81,10 @@
                         ?>
                     </select>
                 </td>
-            </tr>
+              </tr> <!-- select from department -->
 
-            <th><label for="search_day">Select Day:</label></th>
+              <tr>
+                <th><label for="search_day">Select Day:</label></th>
                 <td bgcolor="white">
                   <select name="search_day"  id = "search_day">
                         <option value= "" ></option>
@@ -94,9 +95,9 @@
                         <option value="五">五</option>
                     </select>  
                 </td>
-              <!-- </tr>
+              </tr> <!-- search_day -->
 
-              <tr> -->
+              <tr>
                 <th><label for="search_time1">Select time1:</label></th>
                 <td bgcolor="white">
                     <select name="search_time1" id="search_time1">
@@ -108,9 +109,9 @@
                         ?>
                     </select>
                 </td>
-              <!-- </tr>
+              </tr> <!-- search_time1 -->
 
-              <tr> -->
+              <tr>
                 <th><label for="search_time2">Select time2:</label></th>
                 <td bgcolor="white">
                     <select name="search_time2" id="search_time1">
@@ -122,9 +123,12 @@
                         ?>
                     </select>
                 </td>
-              </tr>
+              </tr> <!-- search_time2 -->
         </table>
-          <input type="submit" value="search">
+        <div align="center">
+          <br><br>
+          <input type="submit" value="search"  >
+        <div>
       </form>  
     </div>
   

@@ -35,6 +35,22 @@ if (isset($_GET['serial_no'])) {
         <p>EMI: ".$row['EMI']."</p>
         <p>Instructor: ".$row['instructor']."</p>
         <p>Time Location: ".$row['time_location']."</p>";
+   
+        $login = $_SESSION['login'];
+        // $login = 0;
+        // echo $login;
+        if(  $login == TRUE ){
+            echo "
+            <a href='post.php?serial_no=".$row['serial_no']."'>
+                <h3>Post a comment: " .$row['serial_no']."</h3>
+            </a>";
+        }
+        else{
+            echo "
+            <a href='login.html?serial_no=".$row['serial_no']."'>
+                <h3>Login in to post!</h3>
+            </a>";
+        }
 
 
         echo "<h1>Posts:</h1>";

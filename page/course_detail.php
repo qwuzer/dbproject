@@ -48,10 +48,6 @@ if (isset($_GET['serial_no'])) {
         //echo $_SESSION['login'];
         $login = $_SESSION['login'];
         if(  $login == TRUE ){
-            //echo "
-            // <a href='post.php?serial_no=".$row['serial_no']."'>
-            //     <h3>Post a comment: " .$row['serial_no']."</h3>
-            // </a>";
             echo "
             <a href='#' onclick='showCommentWindow(" . $row['serial_no'] . ")'>
                 <h3>Post a comment: " . $row['serial_no'] . "</h3>
@@ -59,7 +55,7 @@ if (isset($_GET['serial_no'])) {
         }
         else{
             echo "
-            <a href='login.html?serial_no=".$row['serial_no']."'>
+            <a href='login.php?serial_no=".$row['serial_no']."'>
                 <h3>Login in to post!</h3>
             </a>";
         }

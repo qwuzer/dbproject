@@ -19,15 +19,15 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
+
+//get the number of posts
 $user = $_SESSION['user'];
-echo "user".$user;
 $sql = "SELECT num_of_posts FROM user WHERE user_id = '$user'";
 $result = $conn->query($sql);
 
 if ($result) {
     $row = $result->fetch_assoc();
     $num_of_posts = $row['num_of_posts'];
-    //echo "Number of posts: " . $num_of_posts;
 } else {
     echo "Error executing query: " . $conn->error;
 }
@@ -37,30 +37,23 @@ if ( isset($_POST['rate_easiness']) || isset($_POST['rate_loading']) || isset($_
 	$easiness = $_POST['rate_easiness'];
 	$loading = $_POST['rate_loading'];
 	$usefulness = $_POST['rate_helpfulness'];
-	echo "easines:". $easiness  ,"loadidng:" .$loading  ,"usefulness:". $usefulness . " ";
-
 	$content = $_POST['content'];
-	echo "content:".$content;
-
-	echo "user".$user;
-
 	$postid = $user . "_" . (string)$num_of_posts;
 
-	echo "postid".$postid;
-
 	$serialNo = $_POST['serial_no'];
-	echo "serial number".$serialNo;
 	
 	$insert_sql = "insert into post( post_id , content, easiness, loading, usefulness, serial_no,user_id) values( '$postid', '$content', '$easiness', '$loading', '$usefulness', '$serialNo','$user')";	// TODO
 	
+	$previousPageURL = "course_detail.php?serial_no=" . $serialNo . "#";
 	if ($conn->query($insert_sql) === TRUE) {
 		//update number of posts
 		$num_of_posts = $num_of_posts + 1;
 		$update_sql = "update user set num_of_posts = '$num_of_posts' where user_id = '$user'";
 		$conn->query($update_sql);
-		echo "新增成功!!<br> <a href='index.php'>返回主頁</a>";
+		//$previousPageURL = "course_detail.php?serial_no=" . $serialNo . "#";
+		echo "新增成功!!<br> <a href='$previousPageURL'>返回上頁</a>";
 	} else {
-		echo "<h2 align='center'><font color='antiquewith'>新增失敗!!</font></h2>";
+		echo "<h2 align='center'><font color='antiquewith'>新增失敗!!<a href='$previousPageURL'></font></h2>";
 	}
 
 }else{

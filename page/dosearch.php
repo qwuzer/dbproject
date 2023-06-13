@@ -13,8 +13,8 @@
     
     <div class="this_class_is_for_nav_bar">
       <nav class="navbar">
-          <a href="page/signup.html" target="_self" class="signup_pos"> SIGN UP</a>
-          <a href="page/login.html" target="_self" class="login_pos"> LOG IN</a>
+          <a href="../page/signup.html" target="_self" class="signup_pos"> SIGN UP</a>
+          <a href="../page/login.html" target="_self" class="login_pos"> LOG IN</a>
           <a href="../index.html" target="_self" class="return_indexpage_pos">回到首頁</a>
       </nav>
     </div>
@@ -169,8 +169,9 @@
                         <h3>Serial No: " .$row['serial_no']."</h3>
                     </a>
                     <p>Title: ".$row['title']."</p>
-                    <p class = 'instructor' data-tooltip= ‘".$dept_name."’  ".$dept_name."'>Instructor: ".$row['instructor']."</p>
-                </div>";
+                    <p class = 'instructor' data-tooltip=  ' ".$dept_name."'  ".$dept_name."'>Instructor: ".$row['instructor']."</p>
+                <br><br><br>";
+                //</div>";
     
                 // Display course ratings
                 $postsql = "SELECT easiness , loading , usefulness FROM post where serial_no = ".$row['serial_no']."";
@@ -193,9 +194,15 @@
                     $avg_loading = $total_loading / $postresult->num_rows;
                     $avg_usefulness = $total_usefulness / $postresult->num_rows;
                     echo "<div class='three_point'>";
-                    echo "<p> Easiness: ".$avg_easiness."</p>";
-                    echo "<p> Loading: ".$avg_loading."</p>";
-                    echo "<p> Usefulness: ".$avg_usefulness."</p>";
+                      echo "<div class='div_E'>";
+                        echo "<p> Easiness: ".$avg_easiness."</p>";
+                      echo "</div>";
+                      echo "<div class='div_L'>";
+                        echo "<p bgcolor='green'> Loading: ".$avg_loading."</p>";
+                      echo "</div>";
+                      echo "<div class='div_U'>";
+                        echo "<p> Usefulness: ".$avg_usefulness."</p>";
+                      echo "</div>";
                     echo "</div>";
                 }
                 else{
@@ -212,7 +219,7 @@
                     echo "</div>";
                 }
     
-    
+                echo "</div>";
                 echo "------------------------------------";
     
                 // Increment the counter

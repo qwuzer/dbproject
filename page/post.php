@@ -21,13 +21,20 @@ if (isset($postid)&&isset($serial_no)&&isset($id)&&isset($_POST['content']) && i
 	$usefulness = $_POST['usefulness'];
 	$postid=time();
 
+	$serialNo = $_POST['serial_no'];
 	
 	$insert_sql = "insert into post(post_id, content, easiness, loading, usefulness, serial_no, user_id) values('$postid', '$content', '$easiness', '$loading', '$usefulness', '$serial_no', '$id')";	// TODO
 	
+	$previousPageURL = "course_detail.php?serial_no=" . $serialNo . "#";
 	if ($conn->query($insert_sql) === TRUE) {
-		echo "新增成功!!<br> <a href='index.php'>返回主頁</a>";
+		//update number of posts
+		$num_of_posts = $num_of_posts + 1;
+		$update_sql = "update user set num_of_posts = '$num_of_posts' where user_id = '$user'";
+		$conn->query($update_sql);
+		//$previousPageURL = "course_detail.php?serial_no=" . $serialNo . "#";
+		echo "新增成功!!<br> <a href='$previousPageURL'>返回上頁</a>";
 	} else {
-		echo "<h2 align='center'><font color='antiquewith'>新增失敗!!</font></h2>";
+		echo "<h2 align='center'><font color='antiquewith'>新增失敗!!<a href='$previousPageURL'></font></h2>";
 	}
 
 }else{

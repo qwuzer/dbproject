@@ -17,8 +17,8 @@
 
     <div class="this_class_is_for_nav_bar">
       <nav class="navbar">
-          <a href="page/signup.html" target="_self" class="signup_pos"> SIGN UP</a>
-          <a href="page/login.html" target="_self" class="login_pos"> LOG IN</a>
+          <a href="../page/signup.html" target="_self" class="signup_pos"> SIGN UP</a>
+          <a href="../page/login.html" target="_self" class="login_pos"> LOG IN</a>
           <a href="../index.html" target="_self" class="return_indexpage_pos">回到首頁</a>
       </nav>
     </div>
@@ -27,11 +27,11 @@
       <form action="dosearch.php" method="post" align=>	
         <table class="table_box"  >
               <tr >
-                  <th>search by coursename</th>
+                  <th>Search by coursename</th>
                   <td><input type="text" name="search_course"  class="boarder_test" /></td>
               </tr><!-- 以課程名稱搜尋 -->
               <tr>
-                  <th>search by instructor name</th>
+                  <th>Search by instructor name</th>
                   <td bgcolor="white"><input type="text" name="search_name"  class="boarder_test" /></td>
               </tr><!-- 以老師名稱搜尋 -->
 

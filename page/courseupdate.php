@@ -1,10 +1,31 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="../style/man_add.css">
 <title>學生資料庫管理系統</title>
 </head>
 
 <body>
+<div class="box">
+
+    <div class="background">
+      <!-- this div is for background -->
+    </div>
+
+    <div class="this_class_is_for_nav_bar">
+      <nav class="navbar">
+        <a href="logout.php" target="_self" class="logout_pos"> LOG OUT </a>
+          <p class="add_page_title">新增課程</p>
+        <a href="backend.php" target="_self" class="return_indexpage_pos">回到管理者首頁</a>
+      </nav>
+    </div>
+
+
+
+
+
+
+<div class="man_main_box">
 <h1 align="center">修改課程資料</h1>
 	<form action="doupdate.php?id=<?php echo $_GET['id'];?>" method="post">	
 	  <table width="500" border="1" bgcolor="#cccccc" align="center">
@@ -104,5 +125,8 @@
 
 	  </table>
 	</form>
+
+</div>
+</div>
 </body>
 </html>

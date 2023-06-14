@@ -21,8 +21,6 @@ if ($email && $passwd) {
     $result = $conn->query($sql);
 
     if ($result->num_rows) {
-
-
         $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
         $_SESSION['user'] = $row['user_id'];

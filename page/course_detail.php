@@ -202,7 +202,7 @@ if ($conn->connect_error) {
                         </div>";
 
                         //echo "<p> Easiness: " . $easiness . " Loading: " . $loading . " Usefulness: " . $usefulness . "</p>";
-                        echo "<p> Comment: " . $postrow['content'] . "</p>";
+                        echo "<p class='my_endl'> Comment: " . $postrow['content'] . "</p>";
 
                         echo "</div>";
                         echo "<div class='bot_line'></div>";

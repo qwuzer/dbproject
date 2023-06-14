@@ -35,6 +35,8 @@ if ($conn->connect_error) {
         <div>
             <nav class="navbar">
                 <p class="login_page_title">後台管理</p>
+                <a href="../index.php" target="_self" class="return_indexpage_pos">回到首頁</a>
+                <a href='logout.php' target='_self' class='login_pos'>LOG OUT</a>
             </nav>
         </div>
 

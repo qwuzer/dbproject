@@ -36,7 +36,6 @@ if ($conn->connect_error) {
             <nav class="navbar">
                 <p class="login_page_title">個人資料</p>
                 <a href="../index.php" target="_self" class="return_indexpage_pos">回到首頁</a>
-
             </nav>
         </div>
 

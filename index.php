@@ -24,6 +24,7 @@
                 if ($_SESSION['login'])
                 {
                     echo "<a href='page/userInfo.php' target='_self' class='signup_pos'> PROFILE </a>";
+                    echo "<a href='page/logout.php' target='_self' class='login_pos'> LOG OUT </a>";
                 }
                 else{
                     echo "<a href='page/signup.php' target='_self' class='signup_pos'> SIGN UP</a>";

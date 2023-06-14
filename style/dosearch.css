@@ -13,10 +13,7 @@
     opacity: 0.9;
     border-radius: 8px;
 
-
-
-    
-    height: 2vh;
+    height: 6vh;
     width:98vw; 
     /*min-width: 99%;*/
     border: -8px;
@@ -32,18 +29,24 @@
 
 .signup_pos{
     position: absolute;
-    right: 3vw;
+    font-family: '微軟正黑體';
+    right: 2vw;
 }
 
 .login_pos{
     position: absolute;
-    right: 7vw;
+    right: 10vw;
+    font-family: '微軟正黑體';
 }
 
 .return_indexpage_pos{
-    position: absolute;
-    left: 5vw;
-    font-weight: 700;
+  position: absolute;
+  left: 5vw;
+  font-weight: 700;
+  color: aliceblue;
+  font-size: 3vh;
+  text-decoration: none;
+  font-family: '微軟正黑體';
 }
 
 .main_php_display{
@@ -51,7 +54,6 @@
   top: 10vh;
   left: 10vw;
 }
-
 
 .course-block {
   border-radius: 2vh;

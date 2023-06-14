@@ -38,11 +38,15 @@
 
 .logout_pos{
     position: absolute;
+    font-family: '微軟正黑體';
+
     right: 2vw;
 }
 
 .return_indexpage_pos{
     position: absolute;
+    font-family: '微軟正黑體';
+
     left: 5vw;
     font-weight: 700;
 }

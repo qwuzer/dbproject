@@ -2,14 +2,14 @@
 include "conn.php";
 
 if (!$conn->set_charset("utf8")) {
-    printf("Error loading character set utf8: %s\n", $conn->error);
-    exit();
+	printf("Error loading character set utf8: %s\n", $conn->error);
+	exit();
 }
 
 // Check connection
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
+	die("Connection failed: " . $conn->connect_error);
+}
 
 $id = $_GET['id'];
 $serial_no = $_GET['serial_no'];
@@ -17,7 +17,7 @@ $serial_no = $_GET['serial_no'];
 //time 
 $postTime = $_POST['post_time'];
 echo $postTime;
-$postdateTime =  date('Y-m-d H:i:s', strtotime($postTime));
+$postdateTime = date('Y-m-d H:i:s', strtotime($postTime));
 echo $postdateTime;
 
 
@@ -27,14 +27,14 @@ $sql = "SELECT num_of_posts FROM user WHERE user_id = '$user'";
 $result = $conn->query($sql);
 
 if ($result) {
-    $row = $result->fetch_assoc();
-    $num_of_posts = $row['num_of_posts'];
+	$row = $result->fetch_assoc();
+	$num_of_posts = $row['num_of_posts'];
 } else {
-    echo "Error executing query: " . $conn->error;
+	echo "Error executing query: " . $conn->error;
 }
 
 
-if ( isset($_POST['rate_easiness']) || isset($_POST['rate_loading']) || isset($_POST['rate_helpfulness']) || isset($_POST['content'])) {
+if (isset($_POST['rate_easiness']) || isset($_POST['rate_loading']) || isset($_POST['rate_helpfulness']) || isset($_POST['content'])) {
 	$easiness = $_POST['rate_easiness'];
 	$loading = $_POST['rate_loading'];
 	$usefulness = $_POST['rate_helpfulness'];
@@ -45,9 +45,9 @@ if ( isset($_POST['rate_easiness']) || isset($_POST['rate_loading']) || isset($_
 	//$postid=time();
 
 	$serialNo = $_POST['serial_no'];
-	
-	$insert_sql = "insert into post( post_id , content, easiness, loading, usefulness, serial_no,user_id , post_time) values( '$postid', '$content', '$easiness', '$loading', '$usefulness', '$serialNo','$user' , '$postdateTime')";	// TODO
-	
+
+	$insert_sql = "insert into post( post_id , content, easiness, loading, usefulness, serial_no,user_id , post_time) values( '$postid', '$content', '$easiness', '$loading', '$usefulness', '$serialNo','$user' , '$postdateTime')"; // TODO
+
 	$previousPageURL = "course_detail.php?serial_no=" . $serialNo . "#";
 	if ($conn->query($insert_sql) === TRUE) {
 		//update number of posts
@@ -58,13 +58,12 @@ if ( isset($_POST['rate_easiness']) || isset($_POST['rate_loading']) || isset($_
 		echo "新增成功!!<br> <a href='$previousPageURL'>返回上頁</a>";
 	} else {
 		echo "<h2 align='center'><font color='antiquewith'>新增失敗!!<a href='$previousPageURL'></font></h2>";
-		echo "<h2 align='center'><font color='antiquewith'>返回上頁!!<a href='$previousPageURL'></font></h2>";
+		//echo "<h2 align='center'><font color='antiquewith'>返回上頁!!<a href='$previousPageURL'></font></h2>";
 
 	}
 
-}else{
+} else {
 	echo "資料不完全";
 }
-				
-?>
 
+?>

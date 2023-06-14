@@ -174,7 +174,7 @@
                     $title = $row['title'];
                     $post_id = $row['post_id'];
                     $post_content = $row['content'];
-                    $easiness = $ros['easiness'];
+                    $easiness = $row['easiness'];
                     $loading = $row['loading'];
                     $usefulness = $row['usefulness'];
                     $name = $row['name'];

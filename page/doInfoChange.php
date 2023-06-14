@@ -15,22 +15,27 @@ if ($conn->connect_error) {
 $name = $_POST['name'];
 $email = $_POST['email'];
 $id = $_SESSION['user'];
+$url = $_GET['id'];
 
 if ($email && $name) {
-    $sql = "UPDATE user set name='$name', email='$email' where user_id='$id'";
-    $result = $conn->query($sql);
+
+    $check_sql = "SELECT * FROM user WHERE email='$email'";
+    $result = $conn->query($check_sql);
 
     if ($result->num_rows > 0) {
         $_SESSION['msg'] = "此電子郵件已註冊過帳號";
         // Back to homepage
-        header('Location: signup.php');
+        header("Location: infoChange.php?id=$url");
         exit();
     }
+
+    $sql = "UPDATE user set name='$name', email='$email' where user_id='$id'";
+    $result = $conn->query($sql);
 
     if ($conn->query($sql) === TRUE) {
         header('Location: userInfo.php');
     } else {
-        $_SESSION['msg']="修改失敗";
+        $_SESSION['msg'] = "修改失敗";
         echo "<h2 align='center'><font color='antiquewith'>修改失敗!!</font></h2>";
     }
 

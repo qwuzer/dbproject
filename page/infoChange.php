@@ -68,25 +68,25 @@ if ($conn->connect_error) {
                 <table width="500" border="1" bgcolor="#cccccc" align="center">
                     <tr>
                         <th>name</th>
-                        <td bgcolor="#FFFFFF"><input type="text" name="name" value="<?php echo $row['name']; ?>"/>
+                        <td bgcolor="#FFFFFF"><input type="text" name="name" value="<?php echo $row['name']; ?>" />
                         </td>
                     </tr>
                     <tr>
                         <th>email</th>
-                        <td bgcolor="#FFFFFF"><input type="text" name="email" value="<?php echo $row['email']; ?>"/>
+                        <td bgcolor="#FFFFFF"><input type="text" name="email" value="<?php echo $row['email']; ?>" />
                         </td>
                     </tr>
-                    <?php
-                    if (isset($_SESSION['msg'])) {
-                        echo "<p><font color='#FF0000'>{$_SESSION['msg']}</font></p>";
-                        unset($_SESSION['msg']);
-                    }
-                    //session_unset();
-                    ?>
                     <th colspan="2"><input type="submit" value="更新" /></th>
                     </tr>
                 </table>
             </form>
+            <?php
+            if (isset($_SESSION['msg'])) {
+                echo "<br><p><font color='#FF0000'>{$_SESSION['msg']}</font></p>";
+                unset($_SESSION['msg']);
+            }
+            //session_unset();
+            ?>
         </div>
         <br>
     </div>

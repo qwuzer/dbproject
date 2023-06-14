@@ -14,10 +14,10 @@ if ($conn->connect_error) {
 $id = $_GET['id'];
 
 if (isset($id)) {
-    $delete_sql = "DELETE FROM course where '$id'=serial_no"; // TODO
+    $delete_sql = "DELETE FROM post where '$id'=post_id"; // TODO
 
 	if ($conn->query($delete_sql) === TRUE) {
-        echo "<a href='coursemanage.php'>返回主頁</a>";
+        echo "刪除成功!<a href='index.php'>返回主頁</a>";
     }else{
         echo "刪除失敗!";
 	}

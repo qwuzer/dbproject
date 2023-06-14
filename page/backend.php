@@ -18,15 +18,12 @@
 	}
 </style>
 <body>
-
-
+	
 	<!--<h1>Normal Comment</h1>-->
 	<div>
 	<table style="width:50%" align="center">
-    <tr><th>serial_no</th><th>title</th><th>instructor</th><th colspan="2">Action</th></tr>
-
-		<!--<tr><th>post_id</th><th>content</th><th colspan="2">Action</th></tr>
--->
+		<tr><th>post_id</th><th>content</th><th colspan="2">Action</th></tr>
+		
 
 		
 
@@ -48,27 +45,27 @@
 			} 
 				
 			// ******** update your personal settings ******** 
-			$sql = "SELECT serial_no, title, instructor from course";	// set up your sql query
+			$sql = "SELECT post_id, content from post";	// set up your sql query
 			$result = $conn->query($sql);	// Send SQL Query
 
-			    if ($result->num_rows > 0) {	
+			if ($result->num_rows > 0) {	
 				while ( $row = mysqli_fetch_array ( $result, MYSQLI_ASSOC ) ) {
 					echo "<tr>";
-					echo "<td>".$row["serial_no"]."</td>";
-					echo "<td>".$row["title"]."</td>";
-					echo "<td>".$row["instructor"]."</td>";
-					echo "<td><a href=\"courseupdate.php?id=".$row["serial_no"]."\">修改</td>";
-					echo "<td><a href=\"coursedelete.php?id=".$row["serial_no"]."\">刪除</td>";
+					echo "<td>".$row["post_id"]."</td>";
+					echo "<td>".$row["content"]."</td>";
+					//echo "<td>".$row["StuNum"]."</td>";
+					//echo "<td><a href=\"update.php?id=".$row["post_id"]."\">修改</td>";
+					echo "<td><a href=\"delete.php?id=".$row["post_id"]."\">刪除</td>";
 					echo "</tr>";
 				}
 				} else {
 					echo "0 results";
 				}
-            
 
 		?>
+		
 	</table></div>
-	<p align="center"><a href="coursecreate.html">+</a><p>
+	<!--<p align="center"><a href="create.html">新增資料</a><p>-->
 
 </body>
 	

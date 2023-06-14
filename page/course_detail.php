@@ -160,9 +160,15 @@ if ($conn->connect_error) {
                         $easiness = $postrow['easiness'];
                         $loading = $postrow['loading'];
                         $usefulness = $postrow['usefulness'];
-                        echo "<p  > User: " . $name . "</p>";
-                        echo "<p> Time: " . $posttime . "</p>";
-                        echo "<p> Easiness: " . $easiness . " Loading: " . $loading . " Usefulness: " . $usefulness . "</p>";
+                        echo "<div class='user_icon'><img src='https://i.imgur.com/lrBwFir.png' alt='User Icon'></div>";
+                        echo "<h4>User: " . $name ." </h4>";
+                        echo "<h5>" . $posttime . "</h5>";
+                        echo "<div class='rating'>
+                                <p><span>Easiness:</span> " . $easiness . "</p>
+                                <p><span>Loading:</span> " . $loading . "</p>
+                                <p><span>Usefulness:</span> " . $usefulness . "</p>
+                              </div>";
+                        //echo "<p> Easiness: " . $easiness . " Loading: " . $loading . " Usefulness: " . $usefulness . "</p>";
                         echo "<p> Comment: " . $postrow['content'] . "</p>";
 
                         echo "</div>";

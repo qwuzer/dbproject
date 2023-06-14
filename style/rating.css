@@ -205,6 +205,18 @@
     height:40vh;
 }
 
+ .rating {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem; /* Add spacing between rating elements */
+  }
+  
+
+.user_icon img {
+    width: 24px;
+    height: 24px;
+  }
+  
 .post_even{
     border-radius: 3vh;
     background-color: #EEEEFF;
@@ -213,6 +225,9 @@
 
     height:40vh;
 }
+
+
+
 
  /*below is post.js part*/ 
 .outer_box{

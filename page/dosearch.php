@@ -43,6 +43,7 @@
       } 
       
       if (isset($_POST['search_course']) || 
+          isset($_POST['search_course_code']) || 
           isset($_POST['search_name']) || 
           isset($_POST['search_dept']) || 
           isset($_POST['search_day']) || 

@@ -42,7 +42,7 @@ if ($conn->connect_error) {
         <!-- Align? -->
         <div class="info_box">
             <br><br>
-            <p>個人資料</p>
+            <h2>個人資料</h2>
             <br>
             <?php
             $id = $_SESSION['user'];

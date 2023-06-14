@@ -18,8 +18,8 @@ $serial_no = $_GET['serial_no'];
 //time 
 $postTime = $_POST['post_time'];
 echo $postTime;
-$postdateTime = date('Y-m-d H:i:s', strtotime($postTime));
-echo $postdateTime;
+$postdateTime = gmdate('Y-m-d', $postTime);
+echo "<br>".$postdateTime;
 
 
 //get the number of posts
@@ -41,19 +41,19 @@ if (isset($_POST['rate_easiness']) || isset($_POST['rate_loading']) || isset($_P
 	$usefulness = $_POST['rate_helpfulness'];
 	$content = $_POST['content'];
 
-	echo $easiness;
-	echo $loading;
-	echo $usefulness;
-	echo $content;
+	echo "<br>".$easiness;
+	echo "<br>".$loading;
+	echo "<br>".$usefulness;
+	echo "<br>".$content;
 
 	$serialNo = $_POST['serial_no'];
-	echo $serialNo;
-	echo $postid;
+	echo " <br>".$serialNo;
+	echo "<br> ".$postid;
 
 
-	echo "user" . $user;
+	echo "<br>user:" . $user;
 	$postid = "$user"."_"."$num_of_posts";
-	echo $postid;
+	echo " <br>".$postid;
 	
 	$insert_sql = "insert into post( post_id , content, easiness, loading, usefulness, serial_no,user_id , post_time) values( '$postid', '$content', '$easiness', '$loading', '$usefulness', '$serialNo','$user' , '$postdateTime')";	// TODO
 	
@@ -66,6 +66,7 @@ if (isset($_POST['rate_easiness']) || isset($_POST['rate_loading']) || isset($_P
 		//$previousPageURL = "course_detail.php?serial_no=" . $serialNo . "#";
 		echo "新增成功!!<br> <a href='$previousPageURL'>返回上頁</a>";
 	} else {
+		echo $conn->error;
 		echo "<h2 align='center'><font color='antiquewith'>新增失敗!!<a href='$previousPageURL'></font></h2>";
 		//echo "<h2 align='center'><font color='antiquewith'>返回上頁!!<a href='$previousPageURL'></font></h2>";
 

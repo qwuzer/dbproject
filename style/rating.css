@@ -23,6 +23,11 @@
     margin: 0px;
 }
 
+.my_endl{
+    word-break: break-all;
+    max-width: 80vw;
+}
+
 .navbar{
     z-index: 1;
     position: absolute;

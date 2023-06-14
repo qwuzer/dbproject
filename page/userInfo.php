@@ -41,9 +41,8 @@ if ($conn->connect_error) {
 
         <!-- Align? -->
         <div class="info_box">
-            <br><br>
-            <h2>個人資料</h2>
             <br>
+            <h2>個人資料</h2>
             <?php
             $id = $_SESSION['user'];
 
@@ -52,9 +51,10 @@ if ($conn->connect_error) {
             
             if ($result->num_rows > 0) {
                 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-                echo "<p> name: " . $row['name'] . "<p>
-                      <p>email: " . $row["email"] . "<p>
-                      <p>posts: " . $row["num_of_posts"] . "<p>";
+                echo "<p></p>
+                      <p> name: " . $row['name'] . "</p>
+                      <p>email: " . $row["email"] . "</p>
+                      <p>posts: " . $row["num_of_posts"] . "</p>";
             } else {
                 echo "Invalid request";
             }

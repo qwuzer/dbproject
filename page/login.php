@@ -37,8 +37,7 @@
                 <br><br><br><br><br>
                 <p>登入您的帳號</p>
                 <br>
-                <p>電子郵件：<input type="email" class="only_underline" name="email" required="required"
-                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" /></p>
+                <p>電子郵件：<input type="email" class="only_underline" name="email" required="required" /></p>
                 <p>　　密碼：<input type="password" class="only_underline" name="password" required="required" /></p>
                 <?php
                 if (isset($_SESSION['msg'])) {

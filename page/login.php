@@ -36,7 +36,7 @@
             <div class="log_in_box">
                 <input type="hidden" name="serial_no" value="<?php echo $sn; ?>">
                 <br><br><br><br><br>
-                <p>登入您的帳號</p>
+                <h2>登入您的帳號</h2>
                 <br>
                 <p>電子郵件：<input type="email" class="only_underline" name="email" required="required" /></p>
                 <p>　　密碼：<input type="password" class="only_underline" name="password" required="required" /></p>

@@ -195,7 +195,7 @@
 }
 
 .post_odd{
-    border-radius : 3v;
+    border-radius: 3vh;
     background-color: #DDDDFF;
     padding: 3vh; 
     margin:3vh;
@@ -206,7 +206,7 @@
 }
 
 .post_even{
-    border-radius : 3vh;
+    border-radius: 3vh;
     background-color: #EEEEFF;
     padding: 3vh;
     margin:3vh;

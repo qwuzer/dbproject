@@ -35,7 +35,7 @@
             <form action="dosignup.php?serial_no=<?php echo $_GET['serial_no']?>" method="post">
                 <div class="sign_up_box">
                     <br />
-                    <p>建立您的帳號</p>
+                    <h2>建立您的帳號</h2>
                     
                     <p>　　姓名：<input type="text" class="only_underline" name="name" required="required" /></p>
 

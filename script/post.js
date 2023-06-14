@@ -128,7 +128,7 @@ function showCommentWindow(serialNo) {
             </div>
 
             <div class="e_div">
-                <label for="helpfulness">Easiness:</label>
+                <label for="helpfulness">  Easiness:   </label>
                 <div class="rate">
                     <input type="radio" id="star5_easiness" name="rate_easiness" value="5" />
                     <label for="star5_easiness" title="text">5 stars</label>
@@ -144,7 +144,7 @@ function showCommentWindow(serialNo) {
             </div>
 
             <div class="l_div">    
-                <label for="loading">Loading:</label>
+                <label for="loading">Loading:         </label>
                 <div class="rate">
                     <input type="radio" id="star5_loading" name="rate_loading" value="5" />
                     <label for="star5_loading" title="text">5 stars</label>

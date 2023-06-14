@@ -147,6 +147,30 @@ if ($conn->connect_error) {
                     $usersql = "SELECT user.name FROM user inner join post WHERE post.serial_no = '$serialNo'";
                     $userresult = $conn->query($usersql);
                     $count = 0;
+
+
+                    // Function to get the star rating HTML based on the value
+                        function getStarRatingHTML($value) {
+                        $html = '';
+                        $fullStarURL = 'https://i.imgur.com/cIhWZZr.png';
+                        $halfStarURL = 'https://i.imgur.com/bZfTr0P.png';
+                        $emptyStarURL = 'https://i.imgur.com/3Odw4Rj.png';
+
+                        for ($i = 1; $i <= 5; $i++) {
+                            if ($value >= $i) {
+                            $starURL = $fullStarURL;
+                            } else if ($value >= $i - 0.5) {
+                            $starURL = $halfStarURL;
+                            } else {
+                            $starURL = $emptyStarURL;
+                            }
+
+                            $html .= "<img src='$starURL' alt='Star'>";
+                        }
+
+                        return $html;
+                        }
+
                     while (($postrow = mysqli_fetch_array($postresult, MYSQLI_ASSOC)) && ($userrow = mysqli_fetch_array($userresult, MYSQLI_ASSOC)) ) {
                         $count++;
                         if ($count % 2 == 1) {
@@ -160,14 +184,23 @@ if ($conn->connect_error) {
                         $easiness = $postrow['easiness'];
                         $loading = $postrow['loading'];
                         $usefulness = $postrow['usefulness'];
+
+                        // Round the values of easiness, loading, and usefulness to the closest 0.5
+                        $easiness = round($easiness * 2) / 2;
+                        $loading = round($loading * 2) / 2;
+                        $usefulness = round($usefulness * 2) / 2;
+
+                       
+
                         echo "<div class='user_icon'><img src='https://i.imgur.com/lrBwFir.png' alt='User Icon'></div>";
                         echo "<h4>User: " . $name ." </h4>";
                         echo "<h5>" . $posttime . "</h5>";
                         echo "<div class='rating'>
-                                <p><span>Easiness:</span> " . $easiness . "</p>
-                                <p><span>Loading:</span> " . $loading . "</p>
-                                <p><span>Usefulness:</span> " . $usefulness . "</p>
-                              </div>";
+                            <p><span>Easiness:</span> " . getStarRatingHTML($easiness) . "</p>
+                            <p><span>Loading:</span> " . getStarRatingHTML($loading) . "</p>
+                            <p><span>Usefulness:</span> " . getStarRatingHTML($usefulness) . "</p>
+                        </div>";
+
                         //echo "<p> Easiness: " . $easiness . " Loading: " . $loading . " Usefulness: " . $usefulness . "</p>";
                         echo "<p> Comment: " . $postrow['content'] . "</p>";
 

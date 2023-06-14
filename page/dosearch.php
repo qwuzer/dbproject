@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,6 +22,7 @@
       <?php
       echo "<h1>搜尋結果</h1>";
       
+      session_start();
       //******** update your personal settings ******** 
       $servername = "140.122.184.125:3307";
       $username = "team14";
@@ -139,8 +139,8 @@
       
           echo "一共找到: ". $result->num_rows . "筆資料<br>";
           if( $result->num_rows == 0 ){
-              echo "查無資料";
-              header("Location: http://localhost/webalizer/dbproject/page/search.php");
+              $_SESSION['msg'] = "查無資料";
+              header("Location: search.php");
               exit;
           }
           if ($result->num_rows > 0) {

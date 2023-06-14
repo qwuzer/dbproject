@@ -42,13 +42,15 @@
                 <?php
                 if (isset($_SESSION['msg'])) {
                     echo "<p><font color='#FF0000'>{$_SESSION['msg']}</font></p>";
+                    unset($_SESSION['msg']);
                 }
                 //session_unset();
                 ?>
                 <br>
                 <button class="login_button" type="submit">登入</button>
                 <br>
-                <a href='signup.php' target='_self' class='signup_pos'> 沒有帳號嗎? </a>
+                <a href="signup.php?serial_no=<?php echo $_GET['serial_no'] ?>" . target='_self' class='signup_pos'>
+                    沒有帳號嗎? </a>
             </div>
         </form>
 

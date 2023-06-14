@@ -34,9 +34,20 @@ if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password'])
     $insert_sql = "INSERT INTO user(name, email, password) VALUE ('$userName', '$email', '$passwd')";
 
     if ($conn->query($insert_sql) === TRUE) {
-        echo "註冊成功!!";
+        $serialNo = $_GET['serial_no'];
+
+        echo $serialNo;
+        if (!empty($serialNo)) {
+            // Redirect back to course_detail.php with the 'serial_no' parameter
+            header("Location: course_detail.php?serial_no=$serialNo");
+        } else {
+            // Redirect to a default page if the 'serial_no' parameter is not present
+            header("Location: ../index.php");
+        }
         // Back to homepage
-        echo "<a href='index.php'>返回主頁</a>";
+        // header("Location: ../index.php");
+        // exit();
+        // //echo "<a href='index.php'>返回主頁</a>";
     } else {
         $_SESSION['msg'] = "註冊失敗";
         header("Location: signup.php");

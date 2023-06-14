@@ -31,7 +31,7 @@
         ?>
 
         <div>
-            <form action="dosignup.php" method="post">
+            <form action="dosignup.php?serial_no=<?php echo $_GET['serial_no']?>" method="post">
                 <div class="sign_up_box">
                     <br />
                     <p>建立您的帳號</p>
@@ -51,12 +51,13 @@
                     <?php
                     if (isset($_SESSION['msg'])) {
                         echo "<p><font color='#FF0000'>{$_SESSION['msg']}</font></p>";
+                        unset($_SESSION['msg']);
                     }
                     else
                     {
                         echo "<br>";
                     }
-                    session_unset();
+                    //session_unset();
                     ?>
                     <button class="register_button" type="submit">註冊</button>
                 </div>

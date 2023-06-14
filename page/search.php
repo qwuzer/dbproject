@@ -130,7 +130,11 @@ if ($conn->connect_error) {
                 ?>
               </select>
             </td>
-          </tr> <!-- search_time2 -->
+          </tr>
+          <?php
+          if (isset($_SESSION['msg'])) {
+            echo "<td><font color='#FF0000'>{$_SESSION['msg']}</font></td>";
+          } ?><!-- search_time2 -->
         </table>
         <div align="center">
           <br><br>

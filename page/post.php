@@ -58,6 +58,8 @@ if ( isset($_POST['rate_easiness']) || isset($_POST['rate_loading']) || isset($_
 		echo "新增成功!!<br> <a href='$previousPageURL'>返回上頁</a>";
 	} else {
 		echo "<h2 align='center'><font color='antiquewith'>新增失敗!!<a href='$previousPageURL'></font></h2>";
+		echo "<h2 align='center'><font color='antiquewith'>返回上頁!!<a href='$previousPageURL'></font></h2>";
+
 	}
 
 }else{

@@ -15,7 +15,6 @@ if ($conn->connect_error) {
 $email = $_POST['email'];
 $passwd = $_POST['password'];
 
-
 if ($email && $passwd) {
     $sql = "SELECT * FROM user WHERE email='$email' AND password = '$passwd'";
 
@@ -28,13 +27,12 @@ if ($email && $passwd) {
         $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
         $_SESSION['user'] = $row['user_id'];
-        //echo $_SESSION['user'];
 
         // Check roles
-        if ($_SESSION['user'] === 1) {
+        if ($_SESSION['user'] == 1) {
             header('Location: backend.php');
         } else {
-            //header('Location: user.php');
+            header('Location: user.php');
             $serialNo = isset($_POST['serial_no']) ? $_POST['serial_no'] : '';
 
             // echo $serialNo;
@@ -45,7 +43,6 @@ if ($email && $passwd) {
                 // Redirect to a default page if the 'serial_no' parameter is not present
                 header("Location: ../index.php");
             }
-            //header('Location: ../index.php');
         }
 
     } else {

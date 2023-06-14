@@ -190,9 +190,9 @@
                         $total_loading += $loading;
                         $total_usefulness += $usefulness;
                     }
-                    $avg_easiness = $total_easiness / $postresult->num_rows;
-                    $avg_loading = $total_loading / $postresult->num_rows;
-                    $avg_usefulness = $total_usefulness / $postresult->num_rows;
+                    $avg_easiness = round( $total_easiness / $postresult->num_rows , 1);
+                    $avg_loading =  round($total_loading / $postresult->num_rows, 1);
+                    $avg_usefulness = round($total_usefulness / $postresult->num_rows,1);
                     echo "<div class='three_point'>";
                       echo "<div class='div_E'>";
                         echo "<p> Easiness: ".$avg_easiness."</p>";

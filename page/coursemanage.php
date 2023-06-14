@@ -53,12 +53,6 @@
 				<th colspan="2">Action</th>
 			</tr>
 
-			<!--<tr><th>post_id</th><th>content</th><th colspan="2">Action</th></tr>-->
-
-
-
-			<!-- hint: 用這段php code 讀取資料庫的資料-->
-
 			<?php
 
 			include "conn.php";

@@ -51,10 +51,10 @@ if ($conn->connect_error) {
             
             if ($result->num_rows > 0) {
                 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-                echo "<p></p>
-                      <p> name: " . $row['name'] . "</p>
+                echo "<p> name: " . $row['name'] . "</p>
                       <p>email: " . $row["email"] . "</p>
-                      <p>posts: " . $row["num_of_posts"] . "</p>";
+                      <p>posts: " . $row["num_of_posts"] . "</p>
+                      <a href='infoChange.php?id='".$id." target='_self' class='post_man'>修改</a>";  
             } else {
                 echo "Invalid request";
             }

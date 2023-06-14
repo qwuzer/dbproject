@@ -34,7 +34,7 @@ if ($conn->connect_error) {
         <div>
             <nav class="navbar">
                 <p class="backend_page_title">修改個人資料</p>
-
+                <a href='userIfo.php' target='_self' class='goback_pos'>返回</a>
                 <a href='logout.php' target='_self' class='logout_pos'>LOG OUT</a>
             </nav>
         </div>

@@ -53,7 +53,9 @@ if (isset($_POST['rate_easiness']) || isset($_POST['rate_loading']) || isset($_P
 		$update_sql = "update user set num_of_posts = '$num_of_posts' where user_id = '$user'";
 		$conn->query($update_sql);
 		//$previousPageURL = "course_detail.php?serial_no=" . $serialNo . "#";
-		echo "新增成功!!<br> <a href='$previousPageURL'>返回上頁</a>";
+		header("Location: course_detail.php?serial_no=" . $serialNo);
+		exit();
+		//echo "新增成功!!<br> <a href='$previousPageURL'>返回上頁</a>";
 	} else {
 		echo $conn->error;
 		echo "<h2 align='center'><font color='antiquewith'>新增失敗!!<a href='$previousPageURL'></font></h2>";

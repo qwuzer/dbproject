@@ -24,11 +24,10 @@ if ($email && $passwd) {
     if ($result->num_rows) {
 
         $_SESSION['login'] = TRUE;
-        
 
-		$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-        
-        $_SESSION['user'] = $row['user_id']; 
+        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+
+        $_SESSION['user'] = $row['user_id'];
         //echo $_SESSION['user'];
 
         // Check roles
@@ -37,13 +36,17 @@ if ($email && $passwd) {
         } else {
             //header('Location: user.php');
             $serialNo = isset($_POST['serial_no']) ? $_POST['serial_no'] : '';
-           // echo $serialNo;
-            if ( !empty($serialNo) ) {
+
+            //header('Location: userInfo.php');
+            //exit();
+            // echo $serialNo;
+            if (!empty($serialNo)) {
                 // Redirect back to course_detail.php with the 'serial_no' parameter
                 header("Location: course_detail.php?serial_no=$serialNo");
                 exit();
             } else {
                 // Redirect to a default page if the 'serial_no' parameter is not present
+
                 header("Location: ../index.php");
                 exit();
             }

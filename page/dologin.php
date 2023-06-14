@@ -52,7 +52,6 @@ if ($email && $passwd) {
 
     } else {
         $_SESSION['login'] = FALSE;
-        //echo "<h2 align='center'<font color='antiquewith'>登入失敗，請確認電子郵件及密碼!!</font></h2>";
         $_SESSION['msg'] = '登入失敗，請確認電子郵件及密碼!!';
         header('Location: login.php');
     }
@@ -60,11 +59,5 @@ if ($email && $passwd) {
     $_SESSION['msg'] = '請輸入電子郵件及密碼!!';
     //header('Location: login.html');
 }
-
-if (isset($_SESSION['msg']))
-{
-    echo "<p class='danger'> {$_SESSION['msg']} </p>";
-}
-
 //session_unset();
 ?>

@@ -60,7 +60,6 @@ if ($conn->connect_error) {
                 echo "Invalid request";
             }
 
-            session_unset();
             ?>
             <br>
         </div>

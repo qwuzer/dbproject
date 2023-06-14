@@ -43,6 +43,12 @@
     right: 2vw;
 }
 
+#iii{
+    color: rgb(244, 186, 91);
+    font-size: 35px;
+    font-family: '微軟正黑體';
+}
+
 .login_pos{
     position: absolute;
     right: 10vw;
@@ -62,9 +68,10 @@
     top: 8vh;
     left: 5vw;
     opacity: 1;    
-
     font-size: 30px;
     font-weight: bold;
+    font-family: '微軟正黑體';
+
 }
 
 .first_post_div{
@@ -75,6 +82,7 @@
     border-radius: 28px;
     background-color: rgb(140, 181, 232);
     
+    font-family: '微軟正黑體';
 
     position: absolute;
     top: 20vh;
@@ -109,6 +117,7 @@
     border-style: solid;
     background-color: rgb(140, 181, 232);
     border-radius: 28px;
+    font-family: '微軟正黑體';
 
     position: absolute;
     top: 53vh;

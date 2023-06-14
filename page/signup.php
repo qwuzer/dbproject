@@ -1,50 +1,66 @@
-<?php
-session_start();
-include "conn.php";
+<!DOCTYPE html>
+<html lang="en">
 
-if (!$conn->set_charset("utf8")) {
-    printf("Error loading character set utf8: %s\n", $conn->error);
-    exit();
-}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>註冊</title>
+    <link rel="stylesheet" href="../style/signup.css">
+</head>
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+<body>
+    <div class="box">
 
-//echo $_POST['name'];
+        <div class="background">
+            <!-- hehe -->
+        </div>
 
-if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password'])) {
-    $userName = $_POST['name'];
-    $email = $_POST['email'];
-    $passwd = $_POST['password'];
+        <div>
+            <nav class="navbar">
+                <!-- <a href="/page/signup.html" target="_self" class="signup_pos"> SIGN UP</a>
+                <a href="/page/login.html" target="_self" class="login_pos"> LOG IN</a>
+                <a href="/page/search.html" target="_self" class="search_pos">搜尋更多課程評價！</a> -->
+                <p class="signup_page_title">註冊</p>
+            </nav>
+        </div>
 
-    // check duplicated username
-    $check_sql = "SELECT * FROM user WHERE name='$email'";
-    $result = $conn->query($check_sql);
+        <?php
+        session_start();
+        include "conn.php";
+        ?>
 
-    if ($result->num_rows > 0) {
-        echo "註冊失敗，此電子郵件已註冊過帳號";
-        // Back to homepage
+        <div>
+            <form action="dosignup.php" method="post">
+                <div class="sign_up_box">
+                    <br /><br />
+                    <p>建立您的帳號</p>
+                    <br />
+                    <p>　　姓名：<input type="text" class="only_underline" name="name" required="required" /></p>
 
-        echo "<br><input type='button' onclick='history.go(-2)' value='返回主頁'></input>";
-        exit();
-    }
+                    <p>電子郵件：<input type="email" class="only_underline" name="email" required="required"
+                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" /></p>
 
-    //echo $userName, $email, $passwd;
-    $insert_sql = "INSERT INTO user(name, email, password) VALUE ('$userName', '$email', '$passwd')";
+                    <p>　　密碼：<input type="password" class="only_underline" name="password" required="required"
+                            id="InputPassword" /></p>
 
-    if ($conn->query($insert_sql) === TRUE) {
-        echo "註冊成功!!";
-        // Back to homepage
-        echo "<br><input type='button' onclick='history.go(-2)' value='返回主頁'></input>";
-    } else {
-        echo $conn->error;
-        echo "<h2 align='center'<font color='antiquew
-        ith'>註冊失敗!!</font></h2>";
-        echo "<br><input type='button' onclick='history.go(-2)' value='返回主頁'></input>";
-    }
-} else {
-    echo "資料不完全";
-}
-?>
+                    <p>確認密碼：<input type="password" class="only_underline" name="ConfirmPassword" required="required"
+                            id="ConfirmPassword" oninput="setCustomValidity('');"
+                            onchange="if(document.getElementById('InputPassword').value != document.getElementById('ConfirmPassword').value){setCustomValidity('密碼不吻合');}" />
+                    </p>
+                    <br>
+                    <?php
+                    if (isset($_SESSION['msg'])) {
+                        echo "<p><font color='#FF0000'>{$_SESSION['msg']}</font></p>";
+                    }
+                    session_unset();
+                    ?>
+                    <button class="register_button" type="submit">註冊</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</body>
+
+</html>

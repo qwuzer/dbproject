@@ -97,7 +97,8 @@ if ($conn->connect_error) {
 
                     echo "<h1>Posts:</h1>";
 
-                    $postsql = "SELECT content , easiness , loading , usefulness FROM post where serial_no = '$serialNo'";
+                    $postsql = "SELECT content , easiness , loading , usefulness FROM post where serial_no = '$serialNo' ORDER BY post_time DESC;
+                    ";
                     $postresult = $conn->query($postsql);
 
                     if ($postresult->num_rows > 0) { //get average ratings of post

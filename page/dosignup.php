@@ -36,12 +36,10 @@ if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password'])
     if ($conn->query($insert_sql) === TRUE) {
         echo "註冊成功!!";
         // Back to homepage
-        echo "<a href='coursemanage.php'>返回主頁</a>";
-        //echo "<br><input type='button' onclick='history.go(-2)' value='返回主頁'></input>";
+        echo "<a href='index.php'>返回主頁</a>";
     } else {
-        echo $conn->error;
         $_SESSION['msg'] = "註冊失敗";
-        //header("Location: signup.php");
+        header("Location: signup.php");
     }
 } else {
     echo "資料不完全";

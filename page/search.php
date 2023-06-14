@@ -35,11 +35,11 @@ if ($conn->connect_error) {
       <nav class="navbar">
         <?php
         if ($_SESSION['login']) {
-          echo "<a href='page/userInfo.php' target='_self' class='signup_pos'> PROFILE </a>";
-          echo "<a href='page/logout.php' target='_self' class='login_pos'> LOG OUT </a>";
+          echo "<a href='userInfo.php' target='_self' class='signup_pos'> PROFILE </a>";
+          echo "<a href='logout.php' target='_self' class='login_pos'> LOG OUT </a>";
         } else {
-          echo "<a href='page/signup.php' target='_self' class='signup_pos'> SIGN UP</a>";
-          echo "<a href='page/login.php' target='_self' class='login_pos'> LOG IN</a>";
+          echo "<a href='signup.php' target='_self' class='signup_pos'> SIGN UP</a>";
+          echo "<a href='login.php' target='_self' class='login_pos'> LOG IN</a>";
         }
         ?>
         <a href="../index.php" target="_self" class="return_indexpage_pos">回到首頁</a>

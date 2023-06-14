@@ -31,11 +31,11 @@ if ($conn->connect_error) {
             <nav class="navbar">
                 <?php
                 if ($_SESSION['login']) {
-                    echo "<a href='page/userInfo.php' target='_self' class='signup_pos'> PROFILE </a>";
-                    echo "<a href='page/logout.php' target='_self' class='login_pos'> LOG OUT </a>";
+                    echo "<a href='userInfo.php' target='_self' class='signup_pos'> PROFILE </a>";
+                    echo "<a href='logout.php' target='_self' class='login_pos'> LOG OUT </a>";
                 } else {
-                    echo "<a href='page/signup.php' target='_self' class='signup_pos'> SIGN UP</a>";
-                    echo "<a href='page/login.php' target='_self' class='login_pos'> LOG IN</a>";
+                    echo "<a href='signup.php' target='_self' class='signup_pos'> SIGN UP</a>";
+                    echo "<a href='login.php' target='_self' class='login_pos'> LOG IN</a>";
                 }
                 ?>
                 <a href="../index.php" target="_self" class="return_indexpage_pos">回到首頁</a>
@@ -71,10 +71,10 @@ if ($conn->connect_error) {
                         </div>
                         <div class='sep2_1'>
                             <div><p class='info_content'>EMI: " . $row['EMI'] . "</p></div>
-                            <div><p class='info_content'>Full/Half: " . $row['full/half'] . "</p></div>
+                            <div><p class='info_content'>Full/Half: " . $row['fullhalf'] . "</p></div>
                         </div>
                         <div class='sep2_1'>
-                            <div><p class='info_content'>R/S/G: " . $row['R/S/G'] . "</p></div>
+                            <div><p class='info_content'>R/S/G: " . $row['RSG'] . "</p></div>
                             <div><p class='info_content'>Time Location: " . $row['time_location'] . "</p></div>
                         </div>
                     </div>
@@ -83,10 +83,6 @@ if ($conn->connect_error) {
                     //echo $_SESSION['login'];
                     $login = $_SESSION['login'];
                     if ($login == TRUE) {
-                        //echo "
-                        // <a href='post.php?serial_no=".$row['serial_no']."'>
-                        //     <h3>Post a comment: " .$row['serial_no']."</h3>
-                        // </a>";
                         echo "
                         <a href='#' onclick='showCommentWindow(" . $row['serial_no'] . ")'>
                             <h3>Post a comment: " . $row['serial_no'] . "</h3>
@@ -116,9 +112,9 @@ if ($conn->connect_error) {
                             $total_loading += $loading;
                             $total_usefulness += $usefulness;
                         }
-                        $avg_easiness = $total_easiness / $postresult->num_rows;
-                        $avg_loading = $total_loading / $postresult->num_rows;
-                        $avg_usefulness = $total_usefulness / $postresult->num_rows;
+                        $avg_easiness = round( $total_easiness / $postresult->num_rows , 1);
+                        $avg_loading =  round($total_loading / $postresult->num_rows, 1);
+                        $avg_usefulness = round($total_usefulness / $postresult->num_rows,1);
                         echo "<div class='three_point'>";
                         echo "<div class='div_E'>";
                         echo "<p> Easiness: " . $avg_easiness . "</p>";

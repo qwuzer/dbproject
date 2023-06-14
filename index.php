@@ -62,7 +62,11 @@
                     die("Connection failed: " . $conn->connect_error);
                 }     
             
-                $sql = "SELECT * FROM post , course , user where course.serial_no = post.serial_no and user.user_id = post.user_id ORDER BY post_time DESC LIMIT 1";
+                $sql = "SELECT * 
+                        FROM post , course , user 
+                        where course.serial_no = post.serial_no and 
+                              user.user_id = post.user_id 
+                        ORDER BY post_time DESC LIMIT 1";
                 $result = $conn->query($sql);
                 //echo $result->num_rows;
 
@@ -119,11 +123,11 @@
                         echo "<p>發布日期:".$post_time."&nbsp;</p>";
                         echo "<p>發布者:".$name."&nbsp;</p>";
                         echo "</div>";
-                        echo "<div class='rating'>
-                        <p><span>Easiness:</span> " . getStarRatingHTML($easiness) . "</p>
-                        <p><span>Loading:</span> " . getStarRatingHTML($loading) . "</p>
-                        <p><span>Usefulness:</span> " . getStarRatingHTML($usefulness) . "</p>
-                    </div>";
+                        echo    "<div class='rating'>
+                                    <p><span>Easiness:</span> " . getStarRatingHTML($easiness) . "</p>
+                                    <p><span>Loading:</span> " . getStarRatingHTML($loading) . "</p>
+                                    <p><span>Usefulness:</span> " . getStarRatingHTML($usefulness) . "</p>
+                                </div>";
                     
                     // echo "<p class='id'>$post_id</p>";
                     echo "<p class='post_article'>$post_content</p>";
@@ -154,7 +158,11 @@
                     die("Connection failed: " . $conn->connect_error);
                 }     
             
-                $sql = "SELECT * FROM post , course , user where course.serial_no = post.serial_no and user.user_id = post.user_id ORDER BY post_time DESC LIMIT 1 OFFSET 1";
+                $sql = "SELECT * 
+                        FROM post , course , user 
+                        where course.serial_no = post.serial_no and 
+                              user.user_id = post.user_id 
+                        ORDER BY post_time DESC LIMIT 1 OFFSET 1";
                 $result = $conn->query($sql);
                 //echo $result->num_rows;
 
@@ -185,6 +193,12 @@
                     echo "<p>發布日期:".$post_time."&nbsp;</p>";
                     echo "<p>發布者:".$name."&nbsp;</p>";
                     echo "</div>";
+
+                     echo   "<div class='rating'>
+                                <p><span>Easiness:</span> " . getStarRatingHTML($easiness) . "</p>
+                                <p><span>Loading:</span> " . getStarRatingHTML($loading) . "</p>
+                                <p><span>Usefulness:</span> " . getStarRatingHTML($usefulness) . "</p>
+                            </div>";
                     
                     // echo "<p class='id'>$post_id</p>";
                     echo "<p class='post_article'>$post_content</p>";

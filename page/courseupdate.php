@@ -15,7 +15,7 @@
     <div class="this_class_is_for_nav_bar">
       <nav class="navbar">
         <a href="logout.php" target="_self" class="logout_pos"> LOG OUT </a>
-          <p class="add_page_title">新增課程</p>
+          <p class="add_page_title">修改課程</p>
         <a href="backend.php" target="_self" class="return_indexpage_pos">回到管理者首頁</a>
       </nav>
     </div>

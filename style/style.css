@@ -159,6 +159,10 @@
     display: flex;
     flex-direction: row;
     gap: 0.5rem; /* Add spacing between rating elements */
+
+    position:absolute;
+    top:5.5vh;
+    left:30vw;
  }
   
  .rating img {

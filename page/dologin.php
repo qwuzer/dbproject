@@ -1,13 +1,6 @@
 <?php
 session_start();
-
-$servername = "140.122.184.125:3307";
-$username = "team14";
-$password = "kQVYoJa7S0NIXlCN";
-$dbname = "team14";
-
-//Connecting to and selecting a MySQL database
-$conn = new mysqli($servername, $username, $password, $dbname);
+include "conn.php";
 
 if (!$conn->set_charset("utf8")) {
     printf("Error loading character set utf8: %s\n", $conn->error);
@@ -41,7 +34,6 @@ if ($email && $passwd) {
         // Check roles
         if ($email === 'test@test') {
             header('Location: backend.php');
-            //header('Location: coursemanage.php');
         } else {
             //header('Location: user.php');
             $serialNo = isset($_POST['serial_no']) ? $_POST['serial_no'] : '';
@@ -62,7 +54,7 @@ if ($email && $passwd) {
         $_SESSION['login'] = FALSE;
         //echo "<h2 align='center'<font color='antiquewith'>登入失敗，請確認電子郵件及密碼!!</font></h2>";
         $_SESSION['msg'] = '登入失敗，請確認電子郵件及密碼!!';
-        //header('Location: login.html');
+        header('Location: login.php');
     }
 } else {
     $_SESSION['msg'] = '請輸入電子郵件及密碼!!';

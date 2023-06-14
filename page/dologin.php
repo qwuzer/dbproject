@@ -31,7 +31,7 @@ if ($email && $passwd) {
         //echo $_SESSION['user'];
 
         // Check roles
-        if ($email === 'test@test') {
+        if ($_SESSION['user']) {
             header('Location: backend.php');
         } else {
             //header('Location: user.php');

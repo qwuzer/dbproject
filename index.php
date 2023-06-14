@@ -81,15 +81,15 @@
                     
                     echo "
                     <p>
-                        <a href='../dbproject/page/course_detail.php?serial_no=".$row['serial_no']."'>
+                        <a  class = 'post_title' href='../dbproject/page/course_detail.php?serial_no=".$row['serial_no']."'>
                         <h3>" .$title."</h3>
                         </a>
                     </p>";
                     //echo "<p class= 'post_title'>$title</p>";
 
                     echo "<div class='under_title'>";
-                    echo "<p>發布日期:".$post_time."</p>";
-                    echo "<p>發布者:".$name."</p>";
+                    echo "<p>發布日期:".$post_time."&nbsp;</p>";
+                    echo "<p>發布者:".$name."&nbsp;</p>";
                     echo "</div>";
                     
                     // echo "<p class='id'>$post_id</p>";
@@ -140,15 +140,15 @@
 
                     echo "
                     <p> 
-                        <a href='../dbproject/page/course_detail.php?serial_no=".$row['serial_no']."'>
+                        <a class = 'post_title' href='../dbproject/page/course_detail.php?serial_no=".$row['serial_no']."'>
                         <h3>" .$title."</h3>
                         </a>
                     </p>";
                     //echo "<p class= 'post_title'>$title</p>";
 
                     echo "<div class='under_title'>";
-                    echo "<p>發布日期:".$post_time."</p>";
-                    echo "<p>發布者:".$name."</p>";
+                    echo "<p>發布日期:".$post_time."&nbsp;</p>";
+                    echo "<p>發布者:".$name."&nbsp;</p>";
                     echo "</div>";
                     
                     // echo "<p class='id'>$post_id</p>";

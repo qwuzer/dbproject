@@ -33,10 +33,7 @@ if ($conn->connect_error) {
         </div>
 
         <div>
-            <nav class="navbar">
-                <!-- <a href="/page/signup.html" target="_self" class="signup_pos"> SIGN UP</a>
-                <a href="/page/login.html" target="_self" class="login_pos"> LOG IN</a>
-                <a href="/page/search.html" target="_self" class="search_pos">搜尋更多課程評價！</a> -->
+            <nav class="navbar">     
                 <p class="login_page_title">個人資料</p>
             </nav>
         </div>
@@ -71,10 +68,3 @@ if ($conn->connect_error) {
 </body>
 
 </html>
-
-
-<?php
-// ******** update your personal settings ******** 
-
-
-?>

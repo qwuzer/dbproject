@@ -35,7 +35,7 @@
         <form action="dologin.php" method="post">
             <div class="log_in_box">
                 <input type="hidden" name="serial_no" value="<?php echo $sn; ?>">
-                <br><br><br><br><br>
+                <br><br><br>
                 <h2>登入您的帳號</h2>
                 <br>
                 <p>電子郵件：<input type="email" class="only_underline" name="email" required="required" /></p>

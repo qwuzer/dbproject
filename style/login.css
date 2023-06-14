@@ -16,12 +16,22 @@
 
 
     
-    height: 2vh;
+    height: 3vh;
     width:98vw; 
 
     border: -8px;
     padding: 10px;
 
+}
+
+.return_indexpage_pos{
+    position: absolute;
+    left: 5vw;
+    font-weight: 700;
+
+    color: aliceblue;
+    font-size: 2vh;
+    text-decoration: none;
 }
 
 .login_page_title{

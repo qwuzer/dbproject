@@ -24,7 +24,7 @@
 
 
     
-    height: 2vh;
+    height: 6vh;
     width:98vw; 
     /*min-width: 99%;*/
     border: -8px;
@@ -33,26 +33,27 @@
 }
 .navbar a{
     color: aliceblue;
-    font-size: 2vh;
+    font-size: 3vh;
     text-decoration: none;
     /* font-family: fantasy; */
 }
 
 .signup_pos{
     position: absolute;
-    right: 3vw;
+    right: 2vw;
 }
 
 .login_pos{
     position: absolute;
-    right: 7vw;
+    right: 10vw;
 }
 
 .search_pos{
     position: absolute;
     left: 5vw;
-    font-size: 2vh;
-    font-weight: 700;
+    font-size: 4.5vh;
+    font-weight: 800;
+    color:goldenrod;
 }
 
 .pp{

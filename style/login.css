@@ -28,7 +28,7 @@
     position: absolute;
     left: 5vw;
     font-weight: 700;
-
+    font-family: '微軟正黑體';
     color: aliceblue;
     font-size: 2vh;
     text-decoration: none;
@@ -40,7 +40,7 @@
     text-decoration: none;
     font-weight: 700;
     font-family: fantasy;
-
+    font-family: '微軟正黑體';
     position: absolute;
     top: -2vh;
     left: 48.5vw;
@@ -51,6 +51,7 @@
     position: absolute;
     top: 25vh;
     left: 38vw;
+    font-family: '微軟正黑體';
 
     border-radius: 5vh;
     border-width: 2px;

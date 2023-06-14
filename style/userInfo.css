@@ -37,6 +37,7 @@
     text-decoration: none;
     font-weight: 700;
     font-family: fantasy;
+    font-family: '微軟正黑體';
 
     position: absolute;
     top: -2vh;
@@ -46,6 +47,8 @@
 
 .return_indexpage_pos{
     position: absolute;
+    font-family: '微軟正黑體';
+
     left: 5vw;
     font-weight: 700;
 }
@@ -54,6 +57,7 @@
     position: absolute;
     top: 25vh;
     left: 38vw;
+    font-family: '微軟正黑體';
 
     border-radius: 5vh;
     border-width: 2px;

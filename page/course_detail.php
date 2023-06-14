@@ -97,7 +97,7 @@ if ($conn->connect_error) {
 
                     echo "<h1>Posts:</h1>";
 
-                    $postsql = "SELECT content , easiness , loading , usefulness FROM post where serial_no = '$serialNo' ORDER BY post_time DESC;
+                    $postsql = "SELECT post_id , content , easiness , loading , usefulness , user_id , post_time FROM post where serial_no = '$serialNo' ORDER BY post_time DESC;
                     ";
                     $postresult = $conn->query($postsql);
 
@@ -141,9 +141,13 @@ if ($conn->connect_error) {
                         echo "</div>";
                     }
 
+
                     $postresult = $conn->query($postsql);
+                    //get user name 
+                    $usersql = "SELECT user.name FROM user inner join post WHERE post.serial_no = '$serialNo'";
+                    $userresult = $conn->query($usersql);
                     $count = 0;
-                    while ($postrow = mysqli_fetch_array($postresult, MYSQLI_ASSOC)) {
+                    while (($postrow = mysqli_fetch_array($postresult, MYSQLI_ASSOC)) && ($userrow = mysqli_fetch_array($userresult, MYSQLI_ASSOC)) ) {
                         $count++;
                         if ($count % 2 == 1) {
                             echo "<div class='post_odd'>";
@@ -151,9 +155,13 @@ if ($conn->connect_error) {
                             echo "<div class='post_even'>";
                         }
 
+                        $name = $userrow['name'];
+                        $posttime = $postrow['post_time'];
                         $easiness = $postrow['easiness'];
                         $loading = $postrow['loading'];
                         $usefulness = $postrow['usefulness'];
+                        echo "<p> User: " . $name . "</p>";
+                        echo "<p> Time: " . $posttime . "</p>";
                         echo "<p> Easiness: " . $easiness . " Loading: " . $loading . " Usefulness: " . $usefulness . "</p>";
                         echo "<p> Comment: " . $postrow['content'] . "</p>";
 

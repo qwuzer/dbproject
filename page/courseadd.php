@@ -3,7 +3,7 @@
 <head>
   <title>課程資料庫管理系統</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <link rel="stylesheet" href="../style/search.css">
+    <link rel="stylesheet" href="../style/man_add.css">
 </head>
 <?php
 session_start();
@@ -30,7 +30,7 @@ if ($conn->connect_error) {
     <div class="this_class_is_for_nav_bar">
       <nav class="navbar">
         <a href="logout.php" target="_self" class="logout_pos"> LOG OUT </a>
-          <p class="courseman_page_title">新增課程</p>
+          <p class="add_page_title">新增課程</p>
         <a href="backend.php" target="_self" class="return_indexpage_pos">回到管理者首頁</a>
       </nav>
     </div>

@@ -53,10 +53,9 @@ if ($conn->connect_error) {
             
             if ($result->num_rows > 0) {
                 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-                echo "<p>  user_id: " . $row['user_id'] . "<p>
-                      <p>user_name: " . $row['name'] . "<p>
-                      <p>    email: " . $row["email"] . "<p>
-                      <p>    posts: " . $row["num_of_posts"] . "<p>";
+                echo "<p> name: " . $row['name'] . "<p>
+                      <p>email: " . $row["email"] . "<p>
+                      <p>posts: " . $row["num_of_posts"] . "<p>";
             } else {
                 echo "Invalid request";
             }

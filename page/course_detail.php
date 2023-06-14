@@ -85,7 +85,7 @@
                     }
                     else{
                         echo "
-                        <a href='login.html?serial_no=".$row['serial_no']."'>
+                        <a href='login.php?serial_no=".$row['serial_no']."'>
                             <h3>Login in to post!</h3>
                         </a>";
                     }

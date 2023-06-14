@@ -41,12 +41,9 @@ if ($email && $passwd) {
             if (!empty($serialNo)) {
                 // Redirect back to course_detail.php with the 'serial_no' parameter
                 header("Location: course_detail.php?serial_no=$serialNo");
-                exit();
             } else {
                 // Redirect to a default page if the 'serial_no' parameter is not present
-
                 header("Location: ../index.php");
-                exit();
             }
             //header('Location: ../index.php');
         }

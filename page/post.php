@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "conn.php";
 
 if (!$conn->set_charset("utf8")) {
@@ -39,12 +40,20 @@ if ( isset($_POST['rate_easiness']) || isset($_POST['rate_loading']) || isset($_
 	$loading = $_POST['rate_loading'];
 	$usefulness = $_POST['rate_helpfulness'];
 	$content = $_POST['content'];
-	// $easiness = $_POST['easiness'];
-	// $loading = $_POST['loading'];
-	// $usefulness = $_POST['usefulness'];
-	//$postid=time();
+
+	echo $easiness;
+	echo $loading;
+	echo $usefulness;
+	echo $content;
 
 	$serialNo = $_POST['serial_no'];
+	echo $serialNo;
+	echo $postid;
+
+
+	echo "user" . $user;
+	$postid = "$user"."_"."$num_of_posts";
+	echo $postid;
 	
 	$insert_sql = "insert into post( post_id , content, easiness, loading, usefulness, serial_no,user_id , post_time) values( '$postid', '$content', '$easiness', '$loading', '$usefulness', '$serialNo','$user' , '$postdateTime')";	// TODO
 	

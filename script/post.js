@@ -65,6 +65,13 @@ function validateForm() {
   }
 
 
+  function clickOutsideModal(event) {
+    var modal = document.getElementById('comment-modal');
+    if (modal && !modal.contains(event.target)) {
+        // Click occurred outside of the modal window, so close the window
+        hideCommentWindow();
+    }
+}
 
 function showCommentWindow(serialNo) {
     // Create the modal/pop-up window element
@@ -81,6 +88,13 @@ function showCommentWindow(serialNo) {
     modal.style.borderRadius = '10px'; // Add border-radius for rounded edgess
     modal.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.1)';
     modal.style.zIndex = '9999';
+
+
+     // Append the modal window to the document body
+     document.body.appendChild(modal);
+
+     // Add event listener to the entire document to close the window when clicking outside
+     document.addEventListener('mousedown', clickOutsideModal);
 
     // Add content to the modal/pop-up window
     modal.innerHTML = `

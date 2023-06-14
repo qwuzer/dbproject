@@ -3,6 +3,7 @@
 <head>
 	<title>Normal Comment</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="../style/manage.css">
 </head>
 <style>
 	table,
@@ -25,11 +26,26 @@
 </style>
 
 <body>
+<div class="box">
 
+    <div class="background">
+      <!-- this div is for background -->
+    </div>
+
+    <div class="this_class_is_for_nav_bar">
+      <nav class="navbar">
+        <a href="logout.php" target="_self" class="logout_pos"> LOG OUT </a>
+          <p class="courseman_page_title">課程管理</p>
+        <a href="backend.php" target="_self" class="return_indexpage_pos">回到管理者首頁</a>
+      </nav>
+    </div>
+
+
+    
 
 	<!--<h1>Normal Comment</h1>-->
-	<div>
-		<table style="width:50%" align="center">
+	<div class="main_box">
+		<table style="width:80%" align="center">
 			<tr>
 				<th>serial_no</th>
 				<th>title</th>
@@ -37,8 +53,7 @@
 				<th colspan="2">Action</th>
 			</tr>
 
-			<!--<tr><th>post_id</th><th>content</th><th colspan="2">Action</th></tr>
--->
+			<!--<tr><th>post_id</th><th>content</th><th colspan="2">Action</th></tr>-->
 
 
 
@@ -78,10 +93,14 @@
 			}
 			?>
 		</table>
+        <p align="center"><a href="courseadd.php">+</a></p>
 	</div>
-	<p align="center"><a href="courseadd.php">+</a>
-	<p>
+	
+	
 
+
+
+</div>
 </body>
 
 </html>

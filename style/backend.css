@@ -1,0 +1,135 @@
+.box {
+    position: relative;
+    border: 0px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.navbar{
+    z-index: 1;
+    position: absolute;
+    top: -10px;
+    background-color: rgb(0, 136, 255);
+    opacity: 0.9;
+    border-radius: 8px;
+
+
+
+    
+    height: 3vh;
+    width:98vw; 
+
+    border: -8px;
+    padding: 10px;
+
+}
+
+.navbar a{
+    color: aliceblue;
+    font-size: 3vh;
+    text-decoration: none;
+    /* font-family: fantasy; */
+}
+
+.logout_pos{
+    position: absolute;
+    right: 2vw;
+}
+
+
+
+.backend_page_title{
+    color: aliceblue;
+    font-size: 2.5vh;
+    text-decoration: none;
+    font-weight: 700;
+    font-family: fantasy;
+
+    position: absolute;
+    top: -2vh;
+    left: 48.5vw;
+
+}
+
+.main_box{
+    position: absolute;
+    top: 25vh;
+    left: 38vw;
+
+    border-radius: 5vh;
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(163, 163, 163);
+
+    height: 25vh;
+    width: 24vw;
+
+    background-color: white;
+    opacity: 0.9;
+
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.row{
+    display:flex;
+    flex-direction:row;
+}
+
+.man{
+    border-width:1px;
+    border-style:solid;
+    border-color:gray;
+    border-radius:1vh;
+
+    padding:1vh;
+}
+
+
+
+
+
+.only_underline{
+    outline: none;
+    border: none;
+    border-bottom: 1px solid rgb(163, 163, 163);
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh;
+}
+
+.course_man{
+    text-decoration: none;
+}
+
+.post_man{
+    text-decoration: none;
+}
+
+
+
+.background{
+    z-index: 100;
+    background: url("https://i.imgur.com/wdMfzuC.png");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-color: yellow; */
+
+    top: -1000px;
+
+
+    height: 98vh;
+    width: 99vw;
+    opacity: 0.2;
+
+    
+    /* border-style: solid;
+    border-color: aqua; */
+
+    /*
+    margin: px;
+    padding: 0px;
+    */
+}

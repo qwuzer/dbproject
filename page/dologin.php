@@ -38,7 +38,7 @@ if ($email && $passwd) {
             //header('Location: user.php');
             $serialNo = isset($_POST['serial_no']) ? $_POST['serial_no'] : '';
            // echo $serialNo;
-            if (isset($serialNo)) {
+            if ( !empty($serialNo) ) {
                 // Redirect back to course_detail.php with the 'serial_no' parameter
                 header("Location: course_detail.php?serial_no=$serialNo");
                 exit();

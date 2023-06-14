@@ -19,7 +19,7 @@
       <nav class="navbar">
           <a href="../page/signup.html" target="_self" class="signup_pos"> SIGN UP</a>
           <a href="../page/login.html" target="_self" class="login_pos"> LOG IN</a>
-          <a href="../index.html" target="_self" class="return_indexpage_pos">回到首頁</a>
+          <a href="../index.php" target="_self" class="return_indexpage_pos">回到首頁</a>
       </nav>
     </div>
 

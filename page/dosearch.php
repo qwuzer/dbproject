@@ -58,7 +58,12 @@
               $searchCourse = $_POST['search_course'];
               $sql .= " AND title LIKE '%$searchCourse%'";
           }
-      
+          
+          if (isset($_POST['search_serial_no'])) {
+            $searchSerialNo = $_POST['search_serial_no'];
+            $sql .= " AND serial_no LIKE '%$searchSerialNo%'";
+            }
+
           if (isset($_POST['search_name'])) {
               $searchName = $_POST['search_name'];
               $sql .= " AND instructor LIKE '%$searchName%'";

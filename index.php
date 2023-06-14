@@ -77,13 +77,19 @@
                     $easiness = $ros['easiness'];
                     $loading = $row['loading'];
                     $usefulness = $row['usefulness'];
-
-
-                    echo "<p class= 'post_title'>$title</p>";
+                    $name = $row['name'];
+                    
+                    echo "
+                    <p>
+                        <a href='../dbproject/page/course_detail.php?serial_no=".$row['serial_no']."'>
+                        <h3>" .$title."</h3>
+                        </a>
+                    </p>";
+                    //echo "<p class= 'post_title'>$title</p>";
 
                     echo "<div class='under_title'>";
                     echo "<p>發布日期:".$post_time."</p>";
-                    echo "<p>發布者:".$user_id."</p>";
+                    echo "<p>發布者:".$name."</p>";
                     echo "</div>";
                     
                     // echo "<p class='id'>$post_id</p>";
@@ -130,13 +136,19 @@
                     $easiness = $ros['easiness'];
                     $loading = $row['loading'];
                     $usefulness = $row['usefulness'];
+                    $name = $row['name'];
 
-
-                    echo "<p class= 'post_title'>$title</p>";
+                    echo "
+                    <p> 
+                        <a href='../dbproject/page/course_detail.php?serial_no=".$row['serial_no']."'>
+                        <h3>" .$title."</h3>
+                        </a>
+                    </p>";
+                    //echo "<p class= 'post_title'>$title</p>";
 
                     echo "<div class='under_title'>";
                     echo "<p>發布日期:".$post_time."</p>";
-                    echo "<p>發布者:".$user_id."</p>";
+                    echo "<p>發布者:".$name."</p>";
                     echo "</div>";
                     
                     // echo "<p class='id'>$post_id</p>";

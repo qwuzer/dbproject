@@ -54,6 +54,11 @@ if ($conn->connect_error) {
             <td><input type="text" name="search_course" class="boarder_test" /></td>
           </tr><!-- 以課程名稱搜尋 -->
           <tr>
+          <tr>
+            <th>Search by courscode</th>
+            <td><input type="text" name="search_course_code" class="boarder_test" /></td>
+          </tr><!-- 以課號搜尋 -->
+          <tr>
             <th>Search by instructor name</th>
             <td bgcolor="white"><input type="text" name="search_name" class="boarder_test" /></td>
           </tr><!-- 以老師名稱搜尋 -->

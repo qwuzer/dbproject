@@ -33,9 +33,9 @@
         <div>
             <form action="dosignup.php" method="post">
                 <div class="sign_up_box">
-                    <br /><br />
-                    <p>建立您的帳號</p>
                     <br />
+                    <p>建立您的帳號</p>
+                    
                     <p>　　姓名：<input type="text" class="only_underline" name="name" required="required" /></p>
 
                     <p>電子郵件：<input type="email" class="only_underline" name="email" required="required"
@@ -48,10 +48,13 @@
                             id="ConfirmPassword" oninput="setCustomValidity('');"
                             onchange="if(document.getElementById('InputPassword').value != document.getElementById('ConfirmPassword').value){setCustomValidity('密碼不吻合');}" />
                     </p>
-                    <br>
                     <?php
                     if (isset($_SESSION['msg'])) {
                         echo "<p><font color='#FF0000'>{$_SESSION['msg']}</font></p>";
+                    }
+                    else
+                    {
+                        echo "<br>";
                     }
                     session_unset();
                     ?>

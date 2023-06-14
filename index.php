@@ -20,8 +20,17 @@
 
         <div >
             <nav class="navbar">
-                <a href="page/signup.html" target="_self" class="signup_pos"> SIGN UP</a>
-                <a href="page/login.php" target="_self" class="login_pos"> LOG IN</a>
+                <?php
+                if ($_SESSION['login'])
+                {
+                    echo "<a href='page/userInfo.php' target='_self' class='signup_pos'> PROFILE </a>";
+                }
+                else{
+                    echo "<a href='page/signup.php' target='_self' class='signup_pos'> SIGN UP</a>";
+                    echo "<a href='page/login.php' target='_self' class='login_pos'> LOG IN</a>";
+                }
+                ?>
+                
                 <a href="page/search.php" target="_self" class="search_pos">搜尋更多課程評價！</a>
             </nav>
         </div>

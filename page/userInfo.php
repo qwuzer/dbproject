@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>個人資料</title>
-    <link rel="stylesheet" href="../style/login.css">
+    <link rel="stylesheet" href="../style/userInfo.css">
 </head>
 
 <?php
@@ -40,7 +40,7 @@ if ($conn->connect_error) {
         </div>
 
         <!-- Align? -->
-        <div class="log_in_box">
+        <div class="info_box">
             <br><br>
             <p>個人資料</p>
             <br>

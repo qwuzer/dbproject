@@ -32,18 +32,21 @@
 
 .signup_pos{
     position: absolute;
+    font-family: '微軟正黑體';
     right: 3vw;
 }
 
 .login_pos{
     position: absolute;
     right: 7vw;
+    font-family: '微軟正黑體';
 }
 
 .return_indexpage_pos{
     position: absolute;
     left: 5vw;
     font-weight: 700;
+    font-family: '微軟正黑體';
 }
 
 .main_php_display{
@@ -51,6 +54,8 @@
   top: 10vh;
   left: 10vw;
 }
+
+
 
 
 .course-block {

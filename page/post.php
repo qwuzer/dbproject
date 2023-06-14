@@ -17,9 +17,9 @@ $serial_no = $_GET['serial_no'];
 
 //time 
 $postTime = $_POST['post_time'];
-echo $postTime;
-$postdateTime = gmdate('Y-m-d', $postTime);
-echo "<br>".$postdateTime;
+$postdateTime = date('Y-m-d H:i:s', strtotime($postTime));
+//$postdateTime = gmdate('Y-m-d', $postTime);
+echo "postdateTime".$postdateTime."<br>";
 
 
 //get the number of posts
@@ -33,32 +33,21 @@ if ($result) {
 } else {
 	echo "Error executing query: " . $conn->error;
 }
-
+echo "num_of_posts".$num_of_posts."<br>";
 
 if (isset($_POST['rate_easiness']) || isset($_POST['rate_loading']) || isset($_POST['rate_helpfulness']) || isset($_POST['content'])) {
 	$easiness = $_POST['rate_easiness'];
 	$loading = $_POST['rate_loading'];
 	$usefulness = $_POST['rate_helpfulness'];
 	$content = $_POST['content'];
-
-	echo "<br>".$easiness;
-	echo "<br>".$loading;
-	echo "<br>".$usefulness;
-	echo "<br>".$content;
-
 	$serialNo = $_POST['serial_no'];
-	echo " <br>".$serialNo;
-	echo "<br> ".$postid;
-
-
-	echo "<br>user:" . $user;
 	$postid = "$user"."_"."$num_of_posts";
-	echo " <br>".$postid;
-	
+
 	$insert_sql = "insert into post( post_id , content, easiness, loading, usefulness, serial_no,user_id , post_time) values( '$postid', '$content', '$easiness', '$loading', '$usefulness', '$serialNo','$user' , '$postdateTime')";	// TODO
 	
 	$previousPageURL = "course_detail.php?serial_no=" . $serialNo . "#";
 	if ($conn->query($insert_sql) === TRUE) {
+		
 		//update number of posts
 		$num_of_posts = $num_of_posts + 1;
 		$update_sql = "update user set num_of_posts = '$num_of_posts' where user_id = '$user'";

@@ -14,16 +14,39 @@ if ($conn->connect_error) {
 $id = $_GET['id'];
 $serial_no = $_GET['serial_no'];
 
-if (isset($postid)&&isset($serial_no)&&isset($id)&&isset($_POST['content']) && isset($_POST['easiness']) && isset($_POST['loading']) && isset($_POST['usefulness'])) {
+//time 
+$postTime = $_POST['post_time'];
+echo $postTime;
+$postdateTime =  date('Y-m-d H:i:s', strtotime($postTime));
+echo $postdateTime;
+
+
+//get the number of posts
+$user = $_SESSION['user'];
+$sql = "SELECT num_of_posts FROM user WHERE user_id = '$user'";
+$result = $conn->query($sql);
+
+if ($result) {
+    $row = $result->fetch_assoc();
+    $num_of_posts = $row['num_of_posts'];
+} else {
+    echo "Error executing query: " . $conn->error;
+}
+
+
+if ( isset($_POST['rate_easiness']) || isset($_POST['rate_loading']) || isset($_POST['rate_helpfulness']) || isset($_POST['content'])) {
+	$easiness = $_POST['rate_easiness'];
+	$loading = $_POST['rate_loading'];
+	$usefulness = $_POST['rate_helpfulness'];
 	$content = $_POST['content'];
-	$easiness = $_POST['easiness'];
-	$loading = $_POST['loading'];
-	$usefulness = $_POST['usefulness'];
-	$postid=time();
+	// $easiness = $_POST['easiness'];
+	// $loading = $_POST['loading'];
+	// $usefulness = $_POST['usefulness'];
+	//$postid=time();
 
 	$serialNo = $_POST['serial_no'];
 	
-	$insert_sql = "insert into post(post_id, content, easiness, loading, usefulness, serial_no, user_id) values('$postid', '$content', '$easiness', '$loading', '$usefulness', '$serial_no', '$id')";	// TODO
+	$insert_sql = "insert into post( post_id , content, easiness, loading, usefulness, serial_no,user_id , post_time) values( '$postid', '$content', '$easiness', '$loading', '$usefulness', '$serialNo','$user' , '$postdateTime')";	// TODO
 	
 	$previousPageURL = "course_detail.php?serial_no=" . $serialNo . "#";
 	if ($conn->query($insert_sql) === TRUE) {

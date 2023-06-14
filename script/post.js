@@ -1,5 +1,18 @@
 
 function validateForm() {
+
+    // const currentTime = new Date();
+    // // Format the current time as "YYYY-MM-DD HH:MM:SS"
+    // const formattedTime = currentTime.toISOString().slice(0, 19).replace("T", " ");
+    // document.getElementById("postTime").value = formattedTime;
+
+    const currentTime = new Date();
+    const options = { timeZone: 'Asia/Taipei', hour12: false };
+    const formattedTime = currentTime.toLocaleString('en-US', options);
+    document.getElementById("postTime").value = formattedTime;
+
+       
+    
     var comment = document.getElementById('comment').value;
     if (comment.trim() === '') {
       alert('Please enter a comment.');
@@ -77,6 +90,8 @@ function showCommentWindow(serialNo) {
         <label for="comment">Comment:</label>
         <textarea id="comment" name="content" style="width: calc(100% - 20px); margin-bottom: 10px;"></textarea>
             
+        <input type="hidden" id="postTime" name="post_time" value="">
+
         <label for="helpfulness">Helpfulness:</label>
         <div class="rate">
             <input type="radio" id="star5_helpfulness" name="rate_helpfulness" value="5" />

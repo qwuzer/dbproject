@@ -1,8 +1,7 @@
 <?php
     session_start();
-    //echo $_SESSION['login'];
+    include "conn.php";
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -32,35 +31,10 @@
             <p>最新評價📢📢</p>            
         </div>
 
-<!--        
-        <form action="/search.html" method="post">	
-            <table width="500" border="1" bgcolor="#cccccc" align="center">
-                <tr>
-                    <th>search</th>
-                    <td bgcolor="grey"><input type="text" name="search"  /></td>
-                </tr>
-                <tr>
-                    <th colspan="2"><input type="submit" value="新增"/></th>  
-                   
-                </tr>
-            </table>
-        </form>  -->
-
-
-
-
         <div class="first_post_div">
             <p class="post_title">This is title 1</p>
             <p class="post_article">This is article 1</p>
-            <?php
-                $servername = "140.122.184.125:3307";
-                $username = "team14";
-                $password = "kQVYoJa7S0NIXlCN";
-                $dbname = "team14";
-                
-                //Connecting to and selecting a MySQL database
-                $conn = new mysqli($servername, $username, $password, $dbname);
-                
+            <?php                
                 if (!$conn->set_charset("utf8")) {
                     printf("Error loading character set utf8: %s\n", $conn->error);
                     exit();

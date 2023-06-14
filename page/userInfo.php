@@ -46,7 +46,7 @@ if ($conn->connect_error) {
             <p>個人資料</p>
             <br>
             <?php
-            $id = $_GET["id"];
+            $id = $_SESSION['user'];
 
             $userInfo_sql = "SELECT * FROM user WHERE user_id='$id'"; // set up your sql query
             $result = $conn->query($userInfo_sql); // Send SQL Query

@@ -82,7 +82,24 @@
 
     height: 27vh;
     width: 80vw;
+
+    /* padding: 3vh; */
 }
+
+.under_title{
+    display:flex;
+    flex-direction:row;
+
+    position: absolute;
+
+    top: 5.5vh;
+    left: 3vw;
+
+    border-bottom: 1px solid blue;
+
+    width:74vw;
+}
+
 
 .second_post_div{
     z-index: 10;
@@ -109,6 +126,8 @@
     position: absolute;
     top: 0vh;
     left: 3vw;
+
+    
 }
 
 .post_article{
@@ -116,8 +135,8 @@
     font-size: 2vh;
 
     position: absolute;
-    top: 5vh;
-    left: 7vw;
+    top: 10vh;
+    left: 5vw;
 }
 
 

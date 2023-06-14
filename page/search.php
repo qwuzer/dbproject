@@ -134,6 +134,7 @@ if ($conn->connect_error) {
           <?php
           if (isset($_SESSION['msg'])) {
             echo "<td><font color='#FF0000'>{$_SESSION['msg']}</font></td>";
+            unset($_SESSION['msg']);
           } ?><!-- search_time2 -->
         </table>
         <div align="center">

@@ -45,18 +45,31 @@
                 if ($result->num_rows > 0) {
                     $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
                     echo "
-                    <h1>Course Details</h1>
-                    <p>Serial No: ".$row['serial_no']."</p>
-                    <p>Course Code: ".$row['course_code']."</p>
-                    <p>Department: ".$row['dept_name']."</p>
-                    <p>Course Level: ".$row['course_level']."</p>
-                    <p>Title: ".$row['title']."</p>
-                    <p>Credits: ".$row['credits']."</p>
-                    <p>R/S/G: ".$row['R/S/G']."</p>
-                    <p>Full/Half: ".$row['full/half']."</p>
-                    <p>EMI: ".$row['EMI']."</p>
-                    <p>Instructor: ".$row['instructor']."</p>
-                    <p>Time Location: ".$row['time_location']."</p>";
+                    <div class='title_part'>
+                        <p>".$row['title']."</p>
+                    </div>
+                    <div class='info_part'>
+                        <div class='info_part_second_title'>
+                            <p class='size_3vh'>Course Info</p>
+                        </div>
+                        <div class='sep2_1' >
+                            <div><p class='info_content'>Instructor: ".$row['instructor']."</p></div>
+                            <div><p class='info_content'>Department: ".$row['dept_name']."</p></div>
+                        </div>
+                        <div class='sep2_1'>
+                            <div><p class='info_content'>Course Code: ".$row['course_code']."</p></div>
+                            <div><p class='info_content'>Credits: ".$row['credits']."</p></div>
+                        </div>
+                        <div class='sep2_1'>
+                            <div><p class='info_content'>EMI: ".$row['EMI']."</p></div>
+                            <div><p class='info_content'>Full/Half: ".$row['full/half']."</p></div>
+                        </div>
+                        <div class='sep2_1'>
+                            <div><p class='info_content'>R/S/G: ".$row['R/S/G']."</p></div>
+                            <div><p class='info_content'>Time Location: ".$row['time_location']."</p></div>
+                        </div>
+                    </div>
+                    ";
                 
                     //echo $_SESSION['login'];
                     $login = $_SESSION['login'];

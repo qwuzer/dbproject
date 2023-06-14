@@ -1,12 +1,6 @@
 <?php
-
-$servername = "140.122.184.125:3307";
-$username = "team14";
-$password = "kQVYoJa7S0NIXlCN";
-$dbname = "team14";
-
-//Connecting to and selecting a MySQL database
-$conn = new mysqli($servername, $username, $password, $dbname);
+session_start();
+include "conn.php";
 
 if (!$conn->set_charset("utf8")) {
     printf("Error loading character set utf8: %s\n", $conn->error);

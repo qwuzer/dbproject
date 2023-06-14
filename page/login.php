@@ -44,7 +44,7 @@
                 if (isset($_SESSION['msg'])) {
                     echo "<p><font color='#FF0000'>{$_SESSION['msg']}</font></p>";
                 }
-                session_unset();
+                //session_unset();
                 ?>
                 <br>
                 <button class="login_button" type="submit">登入</button>

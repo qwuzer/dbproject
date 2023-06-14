@@ -50,17 +50,23 @@
 
 .signup_pos{
     position: absolute;
+    font-family: '微軟正黑體';
+
     right: 3vw;
 }
 
 .login_pos{
     position: absolute;
+    font-family: '微軟正黑體';
+
     right: 7vw;
 }
 
 .return_indexpage_pos{
     position: absolute;
     left: 5vw;
+    font-family: '微軟正黑體';
+
     font-weight: 700;
 }
 
@@ -93,7 +99,6 @@
 
 .title_part p{
     font-size: 4vh;
-    
 }
 
 .size_3vh{

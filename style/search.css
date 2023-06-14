@@ -58,7 +58,7 @@
   border-style: solid;
   border-color: rgb(163, 163, 163);
 
-  height: 35vh;
+  height: 50vh;
   width: 40vw;
 
   background-color: white;
@@ -71,7 +71,7 @@
 }
 
 .table_box {
-  width: 39vh;
+  width: 60vh;
   border: 1px;
   background-color: white;
   align-items: center;

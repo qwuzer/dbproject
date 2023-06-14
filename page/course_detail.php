@@ -126,9 +126,10 @@
                     }
                 
                     $postresult = $conn->query($postsql);
+                    $count = 0;
                     while($postrow = mysqli_fetch_array($postresult, MYSQLI_ASSOC))
                     {
-                        $count = 0;
+                        $count++;
                         if( $count % 2 == 1){
                             echo "<div class='post_odd'>";
                         }
@@ -141,6 +142,8 @@
                         $usefulness = $postrow['usefulness'];
                         echo "<p> Easiness: ".$easiness." Loading: ".$loading." Usefulness: ".$usefulness."</p>";
                         echo "<p> Comment: ".$postrow['content']."</p>";
+                        
+                        echo "</div>";echo "<div class='bot_line'></div>";
                     }
                     
                 

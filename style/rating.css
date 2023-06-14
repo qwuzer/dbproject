@@ -72,7 +72,7 @@
     height: autofill;
     width: 79vw;
 
-    padding: 5vh;
+    padding: 10vh;
 
     border-width: 1px;
     border-color: gray;
@@ -94,7 +94,7 @@
 
 .div_E{
     width:8vw;
-    height:9vh;
+    height:5vh;
   
     border-width: 1px;
     border-style:solid;
@@ -107,7 +107,7 @@
 
 .div_L{
     width:8vw;
-    height:9vh;
+    height:5vh;
   
     border-width: 1px;
     border-style:solid;
@@ -115,12 +115,12 @@
     border-radius: 1vh;
     background-color: lightgreen;
 
-    padding:1vh;
+    /* padding:1vh; */
 }
 
 .div_U{
     width:8vw; 
-    height:9vh;
+    height:5vh;
   
     border-width: 1px;
     border-style:solid;
@@ -130,6 +130,45 @@
 
     padding:1vh
 }
+
+.bot_line{
+    position: relative;
+    border-top: 0px;
+    border-left: 0px ;
+    border-right: 0px;
+    border-bottom: 0.5vh blue;
+    border-bottom-style: solid;
+
+    
+    left: 1%;
+    width: 98%;
+    height: 1vh;
+}
+
+.post_odd{
+    border-radius : 3v;
+    background-color: #DDDDFF;
+    padding: 3vh; 
+    margin:3vh;
+
+    font-style: monospace;
+
+    height:40vh;
+}
+
+.post_even{
+    border-radius : 3vh;
+    background-color: #EEEEFF;
+    padding: 3vh;
+    margin:3vh;
+
+    height:40vh;
+}
+
+
+
+
+
   
 .rate {
     float: left;
@@ -172,14 +211,14 @@
     z-index: 100;
     background: url("https://images.unsplash.com/photo-1636998094434-96c8e4635184?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1173&q=80");
     background-attachment: fixed;
-    /* background-repeat: no-repeat; */
+     background-repeat: no-repeat; 
     background-size: cover;
     /* background-color: yellow; */
 
     top: -1000px;
 
 
-    height: 100vh;
+    height: 10000vh;
     width: 99vw;
     opacity: 0.2;
 }

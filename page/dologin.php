@@ -28,17 +28,15 @@ if ($email && $passwd) {
         $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
         $_SESSION['user'] = $row['user_id'];
-        //echo $_SESSION['user'];
+        echo $_SESSION['user'];
 
         // Check roles
-        if ($_SESSION['user']) {
+        if ($_SESSION['user'] === 1) {
             header('Location: backend.php');
         } else {
             //header('Location: user.php');
             $serialNo = isset($_POST['serial_no']) ? $_POST['serial_no'] : '';
 
-            //header('Location: userInfo.php');
-            //exit();
             // echo $serialNo;
             if (!empty($serialNo)) {
                 // Redirect back to course_detail.php with the 'serial_no' parameter

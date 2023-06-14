@@ -12,15 +12,15 @@
     
     <div class="this_class_is_for_nav_bar">
       <nav class="navbar">
-          <a href="../page/signup.php" target="_self" class="signup_pos"> SIGN UP</a>
-          <a href="../page/login.php" target="_self" class="login_pos"> LOG IN</a>
+          <a href="../page/signup.php" target="_self" class='signup_pos'> SIGN UP</a>
+          <a href="../page/login.php" target="_self" class='login_pos'> LOG IN</a>
           <a href="../index.php" target="_self" class="return_indexpage_pos">回到首頁</a>
       </nav>
     </div>
 
     <div class="main_php_display">
       <?php
-      echo "<h1>搜尋結果</h1>";
+      echo "<h1 class='sss'>搜尋結果</h1>";
       
       session_start();
       //******** update your personal settings ******** 

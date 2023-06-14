@@ -34,9 +34,9 @@ if ($conn->connect_error) {
     <div class="this_class_is_for_nav_bar">
       <nav class="navbar">
         <?php
-
         if ($_SESSION['login']) {
           echo "<a href='page/userInfo.php' target='_self' class='signup_pos'> PROFILE </a>";
+          echo "<a href='page/logout.php' target='_self' class='login_pos'> LOG OUT </a>";
         } else {
           echo "<a href='page/signup.php' target='_self' class='signup_pos'> SIGN UP</a>";
           echo "<a href='page/login.php' target='_self' class='login_pos'> LOG IN</a>";

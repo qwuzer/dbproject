@@ -160,7 +160,7 @@ if ($conn->connect_error) {
                         $easiness = $postrow['easiness'];
                         $loading = $postrow['loading'];
                         $usefulness = $postrow['usefulness'];
-                        echo "<p> User: " . $name . "</p>";
+                        echo "<p  > User: " . $name . "</p>";
                         echo "<p> Time: " . $posttime . "</p>";
                         echo "<p> Easiness: " . $easiness . " Loading: " . $loading . " Usefulness: " . $usefulness . "</p>";
                         echo "<p> Comment: " . $postrow['content'] . "</p>";

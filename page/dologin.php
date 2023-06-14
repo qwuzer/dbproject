@@ -24,7 +24,7 @@ if ($email && $passwd) {
         $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
         $_SESSION['user'] = $row['user_id'];
-
+        
         // Check roles
         if ($_SESSION['user'] == 1) {
             $_SESSION['login'] = TRUE;

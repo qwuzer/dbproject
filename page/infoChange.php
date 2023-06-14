@@ -41,9 +41,7 @@ if ($conn->connect_error) {
 
         <!-- Align? -->
         <div class="main_box">
-            <br>
             <h2>個人資料</h2>
-            <br>
             <?php
 
             include "conn.php";
@@ -60,13 +58,35 @@ if ($conn->connect_error) {
             }
 
             // ******** update your personal settings ******** 
-            $sql = "SELECT serial_no, title, instructor from course"; // set up your sql query
+            $id = $_GET['id'];
+            $sql = "SELECT name, email FROM user WHERE user_id='$id'"; // set up your sql query
             $result = $conn->query($sql); // Send SQL Query
+            $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+
             ?>
-            <tr>
-                <th>name</th>
-                <td bgcolor="#FFFFFF"><input type="text" name="name" value="<?php echo $id; ?>" readonly /></td>
-            </tr>
+            <form action="doInfoChange.php?id=<?php echo $_GET['id']; ?>" method="post">
+                <table width="500" border="1" bgcolor="#cccccc" align="center">
+                    <tr>
+                        <th>name</th>
+                        <td bgcolor="#FFFFFF"><input type="text" name="name" value="<?php echo $row['name']; ?>"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>email</th>
+                        <td bgcolor="#FFFFFF"><input type="text" name="email" value="<?php echo $row['email']; ?>"/>
+                        </td>
+                    </tr>
+                    <?php
+                    if (isset($_SESSION['msg'])) {
+                        echo "<p><font color='#FF0000'>{$_SESSION['msg']}</font></p>";
+                        unset($_SESSION['msg']);
+                    }
+                    //session_unset();
+                    ?>
+                    <th colspan="2"><input type="submit" value="更新" /></th>
+                    </tr>
+                </table>
+            </form>
         </div>
         <br>
     </div>

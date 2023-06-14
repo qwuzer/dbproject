@@ -45,7 +45,6 @@ if ($conn->connect_error) {
             <h2>個人資料</h2>
             <?php
             $id = $_SESSION['user'];
-
             $userInfo_sql = "SELECT * FROM user WHERE user_id='$id'"; // set up your sql query
             $result = $conn->query($userInfo_sql); // Send SQL Query
             
@@ -54,7 +53,7 @@ if ($conn->connect_error) {
                 echo "<p> name: " . $row['name'] . "</p>
                       <p>email: " . $row["email"] . "</p>
                       <p>posts: " . $row["num_of_posts"] . "</p>
-                      <a href='infoChange.php?id='".$id." target='_self' class='post_man'>修改</a>";  
+                      <a href='infoChange.php?id=".$id."' target='_self'>修改</a>";  
             } else {
                 echo "Invalid request";
             }

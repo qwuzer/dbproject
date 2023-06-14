@@ -66,6 +66,29 @@
                 $result = $conn->query($sql);
                 //echo $result->num_rows;
 
+
+                // Function to get the star rating HTML based on the value
+                function getStarRatingHTML($value) {
+                    $html = '';
+                    $fullStarURL = 'https://i.imgur.com/cIhWZZr.png';
+                    $halfStarURL = 'https://i.imgur.com/bZfTr0P.png';
+                    $emptyStarURL = 'https://i.imgur.com/3Odw4Rj.png';
+
+                    for ($i = 1; $i <= 5; $i++) {
+                        if ($value >= $i) {
+                        $starURL = $fullStarURL;
+                        } else if ($value >= $i - 0.5) {
+                        $starURL = $halfStarURL;
+                        } else {
+                        $starURL = $emptyStarURL;
+                        }
+
+                        $html .= "<img src='$starURL' alt='Star'>";
+                    }
+
+                    return $html;
+                }
+
                 if ($result->num_rows > 0) {
                     $row = $result->fetch_assoc();
                     $user_id = $row['user_id'];
@@ -74,10 +97,15 @@
                     $title = $row['title'];
                     $post_id = $row['post_id'];
                     $post_content = $row['content'];
-                    $easiness = $ros['easiness'];
+                    $easiness = $row['easiness'];
                     $loading = $row['loading'];
                     $usefulness = $row['usefulness'];
                     $name = $row['name'];
+
+                    $easiness = round($easiness * 2) / 2;
+                    $loading = round($loading * 2) / 2;
+                    $usefulness = round($usefulness * 2) / 2;
+
                     
                     echo "
                     <p>
@@ -87,10 +115,15 @@
                     </p>";
                     //echo "<p class= 'post_title'>$title</p>";
 
-                    echo "<div class='under_title'>";
-                    echo "<p>發布日期:".$post_time."&nbsp;</p>";
-                    echo "<p>發布者:".$name."&nbsp;</p>";
-                    echo "</div>";
+                        echo "<div class='under_title'>";
+                        echo "<p>發布日期:".$post_time."&nbsp;</p>";
+                        echo "<p>發布者:".$name."&nbsp;</p>";
+                        echo "</div>";
+                        echo "<div class='rating'>
+                        <p><span>Easiness:</span> " . getStarRatingHTML($easiness) . "</p>
+                        <p><span>Loading:</span> " . getStarRatingHTML($loading) . "</p>
+                        <p><span>Usefulness:</span> " . getStarRatingHTML($usefulness) . "</p>
+                    </div>";
                     
                     // echo "<p class='id'>$post_id</p>";
                     echo "<p class='post_article'>$post_content</p>";
@@ -145,6 +178,8 @@
                         </a>
                     </p>";
                     //echo "<p class= 'post_title'>$title</p>";
+
+                 
 
                     echo "<div class='under_title'>";
                     echo "<p>發布日期:".$post_time."&nbsp;</p>";

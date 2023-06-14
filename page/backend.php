@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>後台管理</title>
-    <link rel="stylesheet" href="../style/login.css"> <!-- css check -->
+    <link rel="stylesheet" href="../style/backend.css"> <!-- css check -->
 </head>
 
 <?php
@@ -33,19 +33,25 @@ if ($conn->connect_error) {
 
         <div>
             <nav class="navbar">
-                <p class="login_page_title">後台管理</p>
-                <a href="../index.php" target="_self" class="return_indexpage_pos">回到首頁</a>
-                <a href='logout.php' target='_self' class='login_pos'>LOG OUT</a>
+                <p class="backend_page_title">後台管理</p>
+                
+                <a href='logout.php' target='_self' class='logout_pos'>LOG OUT</a>
             </nav>
         </div>
 
         <!-- Align? -->
-        <div class="log_in_box">
+        <div class="main_box">
             <br><br>
-            <p>後台管理</p>
+            <h2>後台管理</h2>
             <br>
-            <a href="coursemanage.php" target="_self" class="signup_pos"> 課程管理</a>
-            <a href="postmanage.php" target="_self" class="signup_pos"> 留言管理</a>
+            <div class="row">
+                <div class="man">
+                    <a href="coursemanage.php" target="_self" class="course_man"> 課程管理</a>
+                </div>
+                <div class="man">
+                    <a href="postmanage.php" target="_self" class="post_man"> 留言管理</a>
+                </div>
+            </div>
             <br>
         </div>
 

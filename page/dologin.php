@@ -21,18 +21,16 @@ if ($email && $passwd) {
     $result = $conn->query($sql);
 
     if ($result->num_rows) {
-
-        $_SESSION['login'] = TRUE;
-
         $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
         $_SESSION['user'] = $row['user_id'];
 
         // Check roles
         if ($_SESSION['user'] == 1) {
+            $_SESSION['login'] = TRUE;
             header('Location: backend.php');
         } else {
-            header('Location: user.php');
+            $_SESSION['login'] = TRUE;
             $serialNo = isset($_POST['serial_no']) ? $_POST['serial_no'] : '';
 
             // echo $serialNo;

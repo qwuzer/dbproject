@@ -33,7 +33,7 @@ if ($conn->connect_error) {
         </div>
 
         <div>
-            <nav class="navbar">     
+            <nav class="navbar">
                 <p class="login_page_title">個人資料</p>
             </nav>
         </div>
@@ -54,7 +54,7 @@ if ($conn->connect_error) {
                 echo "<p>  user_id: " . $row['user_id'] . "<p>
                       <p>user_name: " . $row['name'] . "<p>
                       <p>    email: " . $row["email"] . "<p>
-                      <p>    posts: " . $row["num_of_posts"] ."<p>";
+                      <p>    posts: " . $row["num_of_posts"] . "<p>";
             } else {
                 echo "Invalid request";
             }

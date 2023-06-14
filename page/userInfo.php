@@ -1,13 +1,7 @@
 <?php
 
-//******** update your personal settings ******** 
-$servername = "140.122.184.125:3307";
-$username = "team14";
-$password = "kQVYoJa7S0NIXlCN";
-$dbname = "team14";
-
-//Connecting to and selecting a MySQL database
-$conn = new mysqli($servername, $username, $password, $dbname);
+session_start();
+include "conn.php";
 
 // set up char set
 if (!$conn->set_charset("utf8")) {
@@ -37,5 +31,6 @@ if ($result->num_rows > 0) {
     echo "Invalid request";
 }
 
+session_unset();
 
 ?>

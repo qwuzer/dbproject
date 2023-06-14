@@ -48,6 +48,8 @@
                 ?>
                 <br>
                 <button class="login_button" type="submit">登入</button>
+                <br>
+                <a href='signup.php' target='_self' class='signup_pos'> 沒有帳號嗎? </a>
             </div>
         </form>
 

@@ -20,6 +20,13 @@ if ($conn->connect_error) {
 } 
 
 
+//time 
+$postTime = $_POST['post_time'];
+echo $postTime;
+$postdateTime =  date('Y-m-d H:i:s', strtotime($postTime));
+echo $postdateTime;
+
+
 //get the number of posts
 $user = $_SESSION['user'];
 $sql = "SELECT num_of_posts FROM user WHERE user_id = '$user'";
@@ -42,7 +49,7 @@ if ( isset($_POST['rate_easiness']) || isset($_POST['rate_loading']) || isset($_
 
 	$serialNo = $_POST['serial_no'];
 	
-	$insert_sql = "insert into post( post_id , content, easiness, loading, usefulness, serial_no,user_id) values( '$postid', '$content', '$easiness', '$loading', '$usefulness', '$serialNo','$user')";	// TODO
+	$insert_sql = "insert into post( post_id , content, easiness, loading, usefulness, serial_no,user_id , post_time) values( '$postid', '$content', '$easiness', '$loading', '$usefulness', '$serialNo','$user' , '$postdateTime')";	// TODO
 	
 	$previousPageURL = "course_detail.php?serial_no=" . $serialNo . "#";
 	if ($conn->query($insert_sql) === TRUE) {

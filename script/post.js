@@ -98,60 +98,71 @@ function showCommentWindow(serialNo) {
 
     // Add content to the modal/pop-up window
     modal.innerHTML = `
-    <h2>Leave a Comment and Rating</h2>
-    <form action="post.php" method="post" id="feedback-form"  onsubmit="return validateForm()">
-        <input type="hidden" id="serialNo" name="serial_no" value="${serialNo}">
-        <label for="comment">Comment:</label>
-        <textarea id="comment" name="content" style="width: calc(100% - 20px); margin-bottom: 10px;"></textarea>
+    <div class="outer_box">
+        <h2>Leave a Comment and Rating</h2>
+        
+        <form action="post.php" method="post" id="feedback-form"  onsubmit="return validateForm()">
+        
+            <input type="hidden" id="serialNo" name="serial_no" value="${serialNo}">
+
+            <div class="comment_div">
+                <label for="comment">Comment:</label>
+                <textarea id="comment" name="content" style="width: calc(100% - 20px); margin-bottom: 10px;"></textarea>
+                <input type="hidden" id="postTime" name="post_time" value="">
+            </div>
+
+            <div class="h_div">
+                <label for="helpfulness">Helpfulness:</label>
+                <div class="rate">
+                    <input type="radio" id="star5_helpfulness" name="rate_helpfulness" value="5" />
+                    <label for="star5_helpfulness" title="text">5 stars</label>
+                    <input type="radio" id="star4_helpfulness" name="rate_helpfulness" value="4"  />
+                    <label for="star4_helpfulness" title="text">4 stars</label>
+                    <input type="radio" id="star3_helpfulness" name="rate_helpfulness" value="3"  />
+                    <label for="star3_helpfulness" title="text">3 stars</label>
+                    <input type="radio" id="star2_helpfulness" name="rate_helpfulness" value="2"  />
+                    <label for="star2_helpfulness" title="text">2 stars</label>
+                    <input type="radio" id="star1_helpfulness" name="rate_helpfulness" value="1"  />
+                    <label for="star1_helpfulness" title="text">1 star</label>
+                </div>
+            </div>
+
+            <div class="e_div">
+                <label for="helpfulness">Easiness:</label>
+                <div class="rate">
+                    <input type="radio" id="star5_easiness" name="rate_easiness" value="5" />
+                    <label for="star5_easiness" title="text">5 stars</label>
+                    <input type="radio" id="star4_easiness" name="rate_easiness" value="4"  />
+                    <label for="star4_easiness" title="text">4 stars</label>
+                    <input type="radio" id="star3_easiness" name="rate_easiness" value="3"  />
+                    <label for="star3_easiness" title="text">3 stars</label>
+                    <input type="radio" id="star2_easiness" name="rate_easiness" value="2"  />
+                    <label for="star2_easiness" title="text">2 stars</label>
+                    <input type="radio" id="star1_easiness" name="rate_easiness" value="1"  />
+                    <label for="star1_easiness" title="text">1 star</label>
+                </div>
+            </div>
+
+            <div class="l_div">    
+                <label for="loading">Loading:</label>
+                <div class="rate">
+                    <input type="radio" id="star5_loading" name="rate_loading" value="5" />
+                    <label for="star5_loading" title="text">5 stars</label>
+                    <input type="radio" id="star4_loading" name="rate_loading" value="4" />
+                    <label for="star4_loading" title="text">4 stars</label>
+                    <input type="radio" id="star3_loading" name="rate_loading" value="3" />
+                    <label for="star3_loading" title="text">3 stars</label>
+                    <input type="radio" id="star2_loading" name="rate_loading" value="2" />
+                    <label for="star2_loading" title="text">2 stars</label>
+                    <input type="radio" id="star1_loading" name="rate_loading" value="1" />
+                    <label for="star1_loading" title="text">1 star</label>
+                </div>
+            </div>
+    
+            <button type="submit">Submit</button>
             
-        <input type="hidden" id="postTime" name="post_time" value="">
-
-        <label for="helpfulness">Helpfulness:</label>
-        <div class="rate">
-            <input type="radio" id="star5_helpfulness" name="rate_helpfulness" value="5" />
-            <label for="star5_helpfulness" title="text">5 stars</label>
-            <input type="radio" id="star4_helpfulness" name="rate_helpfulness" value="4"  />
-            <label for="star4_helpfulness" title="text">4 stars</label>
-            <input type="radio" id="star3_helpfulness" name="rate_helpfulness" value="3"  />
-            <label for="star3_helpfulness" title="text">3 stars</label>
-            <input type="radio" id="star2_helpfulness" name="rate_helpfulness" value="2"  />
-            <label for="star2_helpfulness" title="text">2 stars</label>
-            <input type="radio" id="star1_helpfulness" name="rate_helpfulness" value="1"  />
-            <label for="star1_helpfulness" title="text">1 star</label>
-        </div>
-
-        <label for="helpfulness">Easiness:</label>
-        <div class="rate">
-            <input type="radio" id="star5_easiness" name="rate_easiness" value="5" />
-            <label for="star5_easiness" title="text">5 stars</label>
-            <input type="radio" id="star4_easiness" name="rate_easiness" value="4"  />
-            <label for="star4_easiness" title="text">4 stars</label>
-            <input type="radio" id="star3_easiness" name="rate_easiness" value="3"  />
-            <label for="star3_easiness" title="text">3 stars</label>
-            <input type="radio" id="star2_easiness" name="rate_easiness" value="2"  />
-            <label for="star2_easiness" title="text">2 stars</label>
-            <input type="radio" id="star1_easiness" name="rate_easiness" value="1"  />
-            <label for="star1_easiness" title="text">1 star</label>
-        </div>
-
-        <label for="loading">Loading:</label>
-        <div class="rate">
-            <input type="radio" id="star5_loading" name="rate_loading" value="5" />
-            <label for="star5_loading" title="text">5 stars</label>
-            <input type="radio" id="star4_loading" name="rate_loading" value="4" />
-            <label for="star4_loading" title="text">4 stars</label>
-            <input type="radio" id="star3_loading" name="rate_loading" value="3" />
-            <label for="star3_loading" title="text">3 stars</label>
-            <input type="radio" id="star2_loading" name="rate_loading" value="2" />
-            <label for="star2_loading" title="text">2 stars</label>
-            <input type="radio" id="star1_loading" name="rate_loading" value="1" />
-            <label for="star1_loading" title="text">1 star</label>
-        </div>
-
-
-        <button type="submit">Submit</button>
-    </form>
-
+        </form>
+    </div>
 `;
 
 

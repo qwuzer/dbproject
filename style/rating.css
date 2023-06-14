@@ -115,9 +115,7 @@
     height:40vh;
     
 }
-/* .info_part_second_title{
-    
-} */
+
 .sep2_1{
     display:flex;
     flex-direction: row;
@@ -221,6 +219,22 @@
 
 
  /*below is post.js part*/ 
+.outer_box{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.comment_div .h_div .e_div .l_div{
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+
+
+
 .rate {
     float: left;
     height: 46px;

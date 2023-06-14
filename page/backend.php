@@ -1,76 +1,54 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-	<title>Normal Comment</title>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>後台管理</title>
+    <link rel="stylesheet" href="../style/login.css"> <!-- css check -->
 </head>
-<style>
-	table, th, td {
-	border: 1px solid black;
-	border-collapse: collapse;
-	}
-	th, td {
-	padding: 5px;
-	text-align: left;    
-	}
-	h1{
-		color: darksalmon; 
-		font-size: 100px;
-	}
-</style>
+
+<?php
+session_start();
+include "conn.php";
+
+// set up char set
+if (!$conn->set_charset("utf8")) {
+    printf("Error loading character set utf8: %s\n", $conn->error);
+    exit();
+}
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+?>
+
 <body>
-	
-	<!--<h1>Normal Comment</h1>-->
-	<div>
-	<table style="width:50%" align="center">
-		<tr><th>post_id</th><th>content</th><th colspan="2">Action</th></tr>
-		
+    <div class="box">
 
-		
+        <div class="background">
+            <!-- hehe -->
+        </div>
 
-		<!-- hint: 用這段php code 讀取資料庫的資料-->
+        <div>
+            <nav class="navbar">
+                <p class="login_page_title">後台管理</p>
+            </nav>
+        </div>
 
-		<?php
-		
-			include "conn.php";
-				
-			// set up char set
-			if (!$conn->set_charset("utf8")) {
-				printf("Error loading character set utf8: %s\n", $conn->error);
-				exit();
-			}
-				
-			// Check connection
-			if ($conn->connect_error) {
-				die("Connection failed: " . $conn->connect_error);
-			} 
-				
-			// ******** update your personal settings ******** 
-			$sql = "SELECT post_id, content from post";	// set up your sql query
-			$result = $conn->query($sql);	// Send SQL Query
+        <!-- Align? -->
+        <div class="log_in_box">
+            <br><br>
+            <p>後台管理</p>
+            <br>
+            <a href="coursemanage.php" target="_self" class="signup_pos"> 課程管理</a>
+            <a href="postmanage.php" target="_self" class="signup_pos"> 留言管理</a>
+            <br>
+        </div>
 
-			if ($result->num_rows > 0) {	
-				while ( $row = mysqli_fetch_array ( $result, MYSQLI_ASSOC ) ) {
-					echo "<tr>";
-					echo "<td>".$row["post_id"]."</td>";
-					echo "<td>".$row["content"]."</td>";
-					//echo "<td>".$row["StuNum"]."</td>";
-					//echo "<td><a href=\"update.php?id=".$row["post_id"]."\">修改</td>";
-					echo "<td><a href=\"delete.php?id=".$row["post_id"]."\">刪除</td>";
-					echo "</tr>";
-				}
-				} else {
-					echo "0 results";
-				}
-
-		?>
-		
-	</table></div>
-	<!--<p align="center"><a href="create.html">新增資料</a><p>-->
-
+    </div>
 </body>
-	
+
 </html>
-
-
-				
-		

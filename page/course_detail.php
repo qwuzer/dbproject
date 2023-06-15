@@ -161,8 +161,16 @@ if ($conn->connect_error) {
 
                     echo "<h1>Posts:</h1>";
 
-                    $postsql = "SELECT post_id , content , easiness , loading , usefulness , user_id , post_time FROM post where serial_no = '$serialNo' ORDER BY post_time DESC;
-                    ";
+                    // $postsql = "SELECT post_id , content , easiness , loading , usefulness , user_id , post_time 
+                    //             FROM post where serial_no = '$serialNo' 
+                    //             ORDER BY post_time DESC;
+                    //             ";
+                    $postsql = "SELECT *
+                                FROM post , user
+                                where serial_no = '$serialNo' 
+                                AND post.user_id = user.user_id
+                                ORDER BY post_time DESC;
+                                ";
                     $postresult = $conn->query($postsql);
 
                     if ($postresult->num_rows > 0) { //get average ratings of post
@@ -231,7 +239,11 @@ if ($conn->connect_error) {
 
                     $postresult = $conn->query($postsql);
                     //get user name 
-                    $usersql = "SELECT user.name FROM user inner join post WHERE post.serial_no = '$serialNo'";
+                    $usersql = "SELECT user.name 
+                                FROM user , post 
+                                WHERE post.serial_no = '$serialNo'
+                                and user.user_id = post.user_id 
+                                 ";
                     $userresult = $conn->query($usersql);
                     $count = 0;
 
@@ -258,7 +270,7 @@ if ($conn->connect_error) {
                         return $html;
                         }
 
-                    while (($postrow = mysqli_fetch_array($postresult, MYSQLI_ASSOC)) && ($userrow = mysqli_fetch_array($userresult, MYSQLI_ASSOC)) ) {
+                    while (($postrow = mysqli_fetch_array($postresult, MYSQLI_ASSOC))  ) {//&& ($userrow = mysqli_fetch_array($userresult, MYSQLI_ASSOC))
                         $count++;
                         if ($count % 2 == 1) {
                             echo "<div class='post_odd'>";
@@ -266,7 +278,8 @@ if ($conn->connect_error) {
                             echo "<div class='post_even'>";
                         }
 
-                        $name = $userrow['name'];
+                        //$name = $userrow['name'];
+                        $name = $postrow['name'];
                         $posttime = $postrow['post_time'];
                         $easiness = $postrow['easiness'];
                         $loading = $postrow['loading'];

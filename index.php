@@ -31,7 +31,6 @@
                     echo "<a href='page/login.php' target='_self' class='login_pos'> LOG IN</a>";
                 }
                 ?>
-                
                 <a href="page/search.php" target="_self" class="search_pos" id="iii">搜尋更多課程評價🔍</a>
             </nav>
         </div>
@@ -128,7 +127,6 @@
                                     <p><span>Loading:</span> " . getStarRatingHTML($loading) . "</p>
                                     <p><span>Usefulness:</span> " . getStarRatingHTML($usefulness) . "</p>
                                 </div>";
-                    
                     // echo "<p class='id'>$post_id</p>";
                     echo "<p class='post_article'>$post_content</p>";
 

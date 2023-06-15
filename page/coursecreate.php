@@ -27,8 +27,6 @@ if (isset($_POST['serial_no'])&&isset($_POST['course_code']) &&isset($_POST['dep
 	
 	$insert_sql = "insert into course(serial_no, course_code, dept_name, course_level, title, credits, RSG, fullhalf, EMI, instructor, time_location) values('$serial_no', '$course_code', '$dept_name', '$course_level', '$title', '$credits', '$R', '$full', '$EMI', '$instructor', '$time_location')";	// TODO
 	
-	
-
 	if ($conn->query($insert_sql) === TRUE) {
 		echo "新增成功!!<br> <a href='coursemanage.php'>返回主頁</a>";
 	} else {

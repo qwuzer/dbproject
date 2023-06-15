@@ -50,7 +50,7 @@ if ($conn->connect_error) {
       <tr>
         <th>dept_name</th>
         <td>
-          <select name="search_dept" id="search_dept">
+          <select name="dept_name" id="search_dept">
             <option value=""></option>
 
             <?php

@@ -17,7 +17,7 @@ $email = $_POST['email'];
 $id = $_SESSION['user'];
 $url = $_GET['id'];
 
-$sql = "SELECT * FROM user WHERE id='$url'";
+$sql = "SELECT * FROM user WHERE user_id='$url'";
 $result = $conn->query($sql);
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
@@ -41,8 +41,11 @@ if ($email && $name) {
             header('Location: userInfo.php');
         } else {
             $_SESSION['msg'] = "修改失敗";
+            header("Location: infoChange.php?id=$url");
+
         }
     }
+
 
 } else {
     $_SESSION['msg'] = '請輸入電子郵件及密碼!!';

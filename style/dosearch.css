@@ -91,33 +91,35 @@
 }
 
 .div_E{
-  width:8vw;
+  width:13vw;
   
   border-width: 1px;
   border-style:solid;
   border-color: red;
   border-radius: 1vh;
   background-color: pink;
-
+  display:flex;
+  justify-content: center;
   padding:1vh
 }
 .sss{
   font-family: '微軟正黑體';
 }
 .div_L{
-  width:8vw;
+  width:13vw;
   
   border-width: 1px;
   border-style:solid;
   border-color: green;
   border-radius: 1vh;
   background-color: lightgreen;
-
+  display:flex;
+  justify-content: center;
   padding:1vh;
 }
 
 .div_U{
-  width:8vw;
+  width:15vw;
   
   border-width: 1px;
   border-style:solid;
@@ -130,6 +132,21 @@
 
 
 
+
+.rating {
+  /* width: 15px; /* Adjust the width to your desired size *
+  height: 15px; /* Adjust the height to your desired size 
+  vertical-align: middle; */
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem; /* Add spacing between rating elements */
+}
+
+.rating img {
+  width: 15px; /* Adjust the width to your desired size */
+  height: 15px; /* Adjust the height to your desired size */
+  vertical-align: middle;
+}
 
 
 .course-block p.instructor{

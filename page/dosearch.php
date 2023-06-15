@@ -149,6 +149,70 @@
               header("Location: search.php");
               exit;
           }
+
+          function getCakeRatingHTML($value) {
+            $html = '';
+            $fullCakeURL = 'https://i.imgur.com/NAEZyel.png';
+            $halfStarURL = 'https://i.imgur.com/bZfTr0P.png';
+            $emptyCakeURL = 'https://i.imgur.com/3EUBJRm.png';
+
+            for ($i = 1; $i <= 5; $i++) {
+                if ($value >= $i) {
+                $CakeURL = $fullCakeURL;
+                } else if ($value >= $i - 0.5) {
+                $CakeURL = $halfStarURL;
+                } else {
+                $CakeURL = $emptyCakeURL;
+                }
+
+                $html .= "<img src='$CakeURL' alt='Cake'>";
+            }
+
+            return $html;
+            }
+
+            function getWrenchRatingHTML($value) {
+                $html = '';
+                $fullWrenchURL = 'https://i.imgur.com/zAwpYV9.png';
+                $halfWrenchURL = 'https://i.imgur.com/bZfTr0P.png';
+                $emptyWrenchURL = 'https://i.imgur.com/qJbUL2J.png';
+    
+                for ($i = 1; $i <= 5; $i++) {
+                    if ($value >= $i) {
+                    $WrenchURL = $fullWrenchURL;
+                    } else if ($value >= $i - 0.5) {
+                    $WrenchURL = $halfWrenchURL;
+                    } else {
+                    $WrenchURL = $emptyWrenchURL;
+                    }
+    
+                    $html .= "<img src='$WrenchURL' alt='Cake'>";
+                }
+    
+                return $html;
+                }
+
+                function getBooksRatingHTML($value) {
+                    $html = '';
+                    $fullBooksURL = 'https://i.imgur.com/jEbviob.png';
+                    $halfBooksURL = 'https://i.imgur.com/bZfTr0P.png';
+                    $emptyBooksURL = 'https://i.imgur.com/KspQvUW.png';
+        
+                    for ($i = 1; $i <= 5; $i++) {
+                        if ($value >= $i) {
+                        $BooksURL = $fullBooksURL;
+                        } else if ($value >= $i - 0.5) {
+                        $BooksURL = $halfBooksURL;
+                        } else {
+                        $BooksURL = $emptyBooksURL;
+                        }
+        
+                        $html .= "<img src='$BooksURL' alt='Books'>";
+                    }
+        
+                    return $html;
+                    }
+
           if ($result->num_rows > 0) {
               $counter = 0; // Initialize a counter to keep track of the number of courses
               
@@ -199,15 +263,28 @@
                     $avg_easiness = round( $total_easiness / $postresult->num_rows , 1);
                     $avg_loading =  round($total_loading / $postresult->num_rows, 1);
                     $avg_usefulness = round($total_usefulness / $postresult->num_rows,1);
+
+                    $icon_easiness = round($avg_easiness);
+                    $icon_loading = round($avg_loading);
+                    $icon_usefulness = round($avg_usefulness );
+
                     echo "<div class='three_point'>";
                       echo "<div class='div_E'>";
-                        echo "<p> Easiness: ".$avg_easiness."</p>";
+                        echo"<div class='rating'>
+                                <p><span>Easiness: &nbsp;".$avg_easiness."</span><br> " . getCakeRatingHTML($icon_easiness) . "</p>
+                            </div>";
                       echo "</div>";
-                      echo "<div class='div_L'>";
-                        echo "<p bgcolor='green'> Loading: ".$avg_loading."</p>";
+                        echo "<div class='div_L'>";
+                        echo"<div class='rating'>
+                                <p><span>Loading: &nbsp;".$avg_loading."</span><br> " . getWrenchRatingHTML($icon_loading) . "</p>
+                            </div>";
+                        //echo "<p bgcolor='green'> Loading: ".$avg_loading."</p>";
                       echo "</div>";
                       echo "<div class='div_U'>";
-                        echo "<p> Usefulness: ".$avg_usefulness."</p>";
+                      echo"<div class='rating'>
+                      <p><span>Usefulness: &nbsp;".$avg_usefulness."</span><br> " . getBooksRatingHTML($icon_usefulness) . "</p>
+                             </div>";
+                       // echo "<p> Usefulness: ".$avg_usefulness."</p>";
                       echo "</div>";
                     echo "</div>";
                 }

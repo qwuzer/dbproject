@@ -26,7 +26,7 @@ if ($email && $name) {
     $check_sql = "SELECT * FROM user WHERE email='$email'";
     $result = $conn->query($check_sql);
 
-    if ($row['name'] == $name) {
+    if ($row['name'] == $name && $row['email'] != $email) {
         if ($result->num_rows > 0) {
             $_SESSION['msg'] = "此電子郵件已註冊過帳號";
             // Back to homepage
@@ -34,8 +34,6 @@ if ($email && $name) {
             exit();
         }
     } else {
-
-
         $sql = "UPDATE user set name='$name', email='$email' where user_id='$id'";
         $result = $conn->query($sql);
 
@@ -43,7 +41,6 @@ if ($email && $name) {
             header('Location: userInfo.php');
         } else {
             $_SESSION['msg'] = "修改失敗";
-            echo "<h2 align='center'><font color='antiquewith'>修改失敗!!</font></h2>";
         }
     }
 

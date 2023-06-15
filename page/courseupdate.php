@@ -89,11 +89,11 @@
 		</tr>
         <tr>
 		  <th>R/S/G</th>
-		  <td bgcolor="#FFFFFF"><input type="text" name="R/S/G" value="<?php echo $row['R/S/G'];?>" /></td>
+		  <td bgcolor="#FFFFFF"><input type="text" name="RSG" value="<?php echo $row['RSG'];?>" /></td>
 		</tr>
         <tr>
 		  <th>full/half</th>
-		  <td bgcolor="#FFFFFF"><input type="text" name="full/half" value="<?php echo $row['full/half'];?>" /></td>
+		  <td bgcolor="#FFFFFF"><input type="text" name="fullhalf" value="<?php echo $row['fullhalf'];?>" /></td>
 		</tr>
         <tr>
 		  <th>EMI</th>

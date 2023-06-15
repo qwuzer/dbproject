@@ -17,8 +17,8 @@ if (isset($_POST['course_code']) &&isset($_POST['dept_name']) &&isset($_POST['co
 	$course_level = $_POST['course_level'];
 	$title = $_POST['title'];
 	$credits = $_POST['credits'];
-	$R = $_POST['R/S/G'];
-	$full = $_POST['full/half'];
+	$R = $_POST['RSG'];
+	$full = $_POST['fullhalf'];
 	$EMI = $_POST['EMI'];
 	$instructor = $_POST['instructor'];
 	$time_location = $_POST['time_location'];

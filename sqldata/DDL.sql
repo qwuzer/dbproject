@@ -33,7 +33,7 @@ create table course
 	 title			varchar(50), 
 	 dept_name		varchar(20), 
      course_code    varchar(20), -- CSC9006
-     R/S            varchar(20), -- required/selected
+     RSG            varchar(20), -- required/selected
      course_level   varchar(20), -- undergraduate/graduate
      semester       numeric(1,0) check (semester in (1,2)),
 	 credits		numeric(2,0) check (credits > 0),

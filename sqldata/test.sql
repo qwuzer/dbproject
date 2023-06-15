@@ -8,8 +8,8 @@ CREATE TABLE IF NOT EXISTS `course` (
     `course_level` varchar (100),
     `title`			varchar(200),
     `credits`		numeric(2, 0) check (credits > 0),
-    `R/S/G`            varchar(10), -- requseted/selected/general
-    `full/half`      varchar(2),
+    `RSG`            varchar(10), -- requseted/selected/general
+    `fullhalf`      varchar(2),
     `EMI`   varchar(20),
     `instructor`  varchar(100),
     `time_location` varchar(100),

@@ -50,30 +50,30 @@ if ($conn->connect_error) {
       <form action="dosearch.php" method="post" align=>
         <table class="table_box">
           <tr>
-            <th>Search by coursename</th>
+            <th>課程名稱</th>
             <td><input type="text" name="search_course" class="boarder_test" /></td>
           </tr><!-- 以課程名稱搜尋 -->
           <tr>
           <tr>
-            <th>Search by serial_no</th>
+            <th>課號</th>
             <td><input type="text" name="search_serial_no" class="boarder_test" /></td>
           </tr><!-- 以課號搜尋 -->
           <tr>
-            <th>Search by instructor name</th>
+            <th>教師名稱</th>
             <td bgcolor="white"><input type="text" name="search_name" class="boarder_test" /></td>
           </tr><!-- 以老師名稱搜尋 -->
 
           <tr>
-            <th>EMI</th>
+            <th>EMI(英語授課)</th>
             <td bgcolor="white"><input type="radio" name="search_emi" value='是'>
-              yes
+              是
               <input type="radio" name="search_emi" value='0'>
-              no
+              否
             </td>
           </tr> <!-- 是否為EMI -->
 
           <tr>
-            <th><label for="search_dept">Select Department:</label></th>
+            <th><label for="search_dept">選擇科系:</label></th>
             <td>
               <select name="search_dept" id="search_dept">
                 <option value=""></option>
@@ -96,7 +96,7 @@ if ($conn->connect_error) {
           </tr> <!-- select from department -->
 
           <tr>
-            <th><label for="search_day">Select Day:</label></th>
+            <th><label for="search_day">星期幾:</label></th>
             <td bgcolor="white">
               <select name="search_day" id="search_day">
                 <option value=""></option>
@@ -110,7 +110,7 @@ if ($conn->connect_error) {
           </tr> <!-- search_day -->
 
           <tr>
-            <th><label for="search_time1">Select time1:</label></th>
+            <th><label for="search_time1">開始區段:</label></th>
             <td bgcolor="white">
               <select name="search_time1" id="search_time1">
                 <option value=""></option>
@@ -124,7 +124,7 @@ if ($conn->connect_error) {
           </tr> <!-- search_time1 -->
 
           <tr>
-            <th><label for="search_time2">Select time2:</label></th>
+            <th><label for="search_time2">結束區段:</label></th>
             <td bgcolor="white">
               <select name="search_time2" id="search_time1">
                 <option value=""></option>

@@ -19,6 +19,7 @@ if (isset($id)) {
 	if ($conn->query($delete_sql) === TRUE) {
         echo "<a href='coursemanage.php'>返回主頁</a>";
     }else{
+        echo $conn->error;
         echo "刪除失敗!";
 	}
 

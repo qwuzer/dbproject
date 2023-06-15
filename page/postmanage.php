@@ -34,8 +34,8 @@
     </div>
 	<!--<h1>Normal Comment</h1>-->
 	<div class="main_box">
-	<table style="width:80%" align="center">
-		<tr><th>post_id</th><th>content</th><th colspan="2">Action</th></tr>	
+	<table style="width:90%" align="center">
+		<tr><th>post_id</th><th>content</th><th>post_time</th><th colspan="2">Action</th></tr>	
 
 		<!-- hint: 用這段php code 讀取資料庫的資料-->
 
@@ -55,7 +55,7 @@
 			} 
 				
 			// ******** update your personal settings ******** 
-			$sql = "SELECT post_id, content from post";	// set up your sql query
+			$sql = "SELECT post_id, content, post_time from post";	// set up your sql query
 			$result = $conn->query($sql);	// Send SQL Query
 
 			if ($result->num_rows > 0) {	
@@ -65,6 +65,7 @@
 					echo "<td class='my_endl'>".$row["content"]."</td>";
 					//echo "<td>".$row["StuNum"]."</td>";
 					//echo "<td><a href=\"update.php?id=".$row["post_id"]."\">修改</td>";
+					echo "<td class='time'>".$row["post_time"]."</td>";
 					echo "<td><a href=\"delete.php?id=".$row["post_id"]."\">刪除</td>";
 					echo "</tr>";
 				}

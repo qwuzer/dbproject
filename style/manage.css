@@ -9,6 +9,10 @@
     word-break: break-all;
     max-width: 80vw;
 }
+.time{
+    word-break: normal;
+    max-width: 80vw;
+}
 
 .navbar{
     z-index: 1;

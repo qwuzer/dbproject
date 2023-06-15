@@ -42,7 +42,7 @@ if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password'])
             header("Location: course_detail.php?serial_no=$serialNo");
         } else {
             // Redirect to a default page if the 'serial_no' parameter is not present
-            header("Location: ../index.php");
+            header("Location: login.php");
         }
         // Back to homepage
         // header("Location: ../index.php");

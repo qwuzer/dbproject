@@ -42,7 +42,6 @@ if ($email && $name) {
         } else {
             $_SESSION['msg'] = "修改失敗";
             header("Location: infoChange.php?id=$url");
-
         }
     }
 
